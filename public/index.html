@@ -1,0 +1,1505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Fahad — Backend Software Engineer</title>
+
+  <meta
+    name="description"
+    content="Fahad is a Backend Software Engineer specializing in Node.js, TypeScript, microservices, REST APIs and AWS."
+  />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #07080d;
+      --bg2: #0c0f18;
+      --card: rgba(255,255,255,.045);
+      --border: rgba(255,255,255,.10);
+      --text: #f8fafc;
+      --muted: #9299aa;
+      --purple: #8b5cf6;
+      --blue: #38bdf8;
+      --green: #34d399;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+      background:
+        radial-gradient(
+          circle at 20% 10%,
+          rgba(139,92,246,.15),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 85% 30%,
+          rgba(56,189,248,.10),
+          transparent 30%
+        ),
+        var(--bg);
+
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* ================= NAVBAR ================= */
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+
+      background: rgba(7,8,13,.75);
+      backdrop-filter: blur(18px);
+
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+
+    .nav {
+      max-width: 1150px;
+      margin: auto;
+
+      padding: 18px 25px;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    .logo span {
+      color: var(--purple);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #aeb4c2;
+      font-size: 14px;
+      transition: .2s;
+    }
+
+    .nav-links a:hover {
+      color: white;
+    }
+
+    .nav-contact {
+      padding: 10px 17px;
+
+      border: 1px solid rgba(139,92,246,.4);
+      border-radius: 9px;
+
+      color: white;
+      font-size: 13px;
+
+      background: rgba(139,92,246,.1);
+    }
+
+    /* ================= HERO ================= */
+
+    .hero {
+      min-height: 850px;
+
+      max-width: 1150px;
+      margin: auto;
+
+      padding: 170px 25px 100px;
+
+      display: grid;
+      grid-template-columns: 1.25fr .75fr;
+      align-items: center;
+      gap: 70px;
+    }
+
+    .availability {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+
+      padding: 7px 13px;
+
+      border: 1px solid rgba(52,211,153,.25);
+      background: rgba(52,211,153,.06);
+
+      border-radius: 50px;
+
+      color: #7eeac0;
+      font-size: 12px;
+
+      margin-bottom: 25px;
+    }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+
+      border-radius: 50%;
+
+      background: var(--green);
+      box-shadow: 0 0 12px var(--green);
+    }
+
+    h1 {
+      font-size: clamp(52px, 7vw, 82px);
+      line-height: .98;
+      letter-spacing: -5px;
+      margin-bottom: 25px;
+    }
+
+    .gradient {
+      background: linear-gradient(
+        100deg,
+        #fff,
+        #a78bfa,
+        #38bdf8
+      );
+
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-role {
+      font-size: 22px;
+      color: #d5d9e2;
+      margin-bottom: 18px;
+    }
+
+    .hero-description {
+      max-width: 650px;
+
+      color: var(--muted);
+
+      font-size: 17px;
+      line-height: 1.8;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 13px;
+
+      margin-top: 35px;
+    }
+
+    .btn {
+      padding: 13px 21px;
+
+      border-radius: 10px;
+
+      font-size: 14px;
+      font-weight: 700;
+
+      transition: .25s;
+    }
+
+    .primary {
+      background: linear-gradient(
+        135deg,
+        var(--purple),
+        #6366f1
+      );
+
+      box-shadow:
+        0 15px 40px rgba(139,92,246,.25);
+    }
+
+    .primary:hover {
+      transform: translateY(-3px);
+    }
+
+    .secondary {
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.04);
+    }
+
+    .secondary:hover {
+      background: rgba(255,255,255,.08);
+    }
+
+    /* ================= PROFILE CARD ================= */
+
+    .profile-card {
+      position: relative;
+
+      padding: 35px;
+
+      border: 1px solid var(--border);
+      border-radius: 25px;
+
+      background: var(--card);
+      backdrop-filter: blur(20px);
+
+      box-shadow:
+        0 30px 100px rgba(0,0,0,.35);
+
+      text-align: center;
+    }
+
+    .profile-circle {
+      width: 125px;
+      height: 125px;
+
+      margin: auto auto 22px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 50%;
+
+      font-size: 42px;
+      font-weight: 800;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(139,92,246,.35),
+          rgba(56,189,248,.25)
+        );
+
+      border: 1px solid rgba(255,255,255,.12);
+
+      box-shadow:
+        0 0 70px rgba(139,92,246,.2);
+    }
+
+    .profile-card h2 {
+      font-size: 24px;
+      margin-bottom: 5px;
+    }
+
+    .profile-card .role {
+      color: var(--purple);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .profile-info {
+      margin-top: 25px;
+
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .info {
+      display: flex;
+      justify-content: space-between;
+
+      padding: 12px;
+
+      border-radius: 9px;
+
+      background: rgba(255,255,255,.035);
+
+      font-size: 12px;
+    }
+
+    .info span:first-child {
+      color: var(--muted);
+    }
+
+    /* ================= STATS ================= */
+
+    .stats {
+      max-width: 1050px;
+
+      margin: -20px auto 80px;
+
+      padding: 25px;
+
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+
+      border: 1px solid var(--border);
+      border-radius: 18px;
+
+      background: rgba(255,255,255,.035);
+    }
+
+    .stat {
+      text-align: center;
+
+      border-right: 1px solid var(--border);
+    }
+
+    .stat:last-child {
+      border-right: none;
+    }
+
+    .number {
+      font-size: 28px;
+      font-weight: 800;
+    }
+
+    .label {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    /* ================= SECTIONS ================= */
+
+    section {
+      max-width: 1150px;
+      margin: auto;
+      padding: 100px 25px;
+    }
+
+    .section-label {
+      color: var(--purple);
+
+      font-size: 11px;
+      font-weight: 800;
+
+      letter-spacing: 2px;
+      text-transform: uppercase;
+
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(35px,5vw,52px);
+
+      letter-spacing: -2px;
+      line-height: 1.05;
+
+      margin-bottom: 18px;
+    }
+
+    .section-description {
+      max-width: 650px;
+
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    /* ================= SKILLS ================= */
+
+    .skills {
+      margin-top: 45px;
+
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 16px;
+    }
+
+    .skill-card {
+      padding: 25px;
+
+      border: 1px solid var(--border);
+      border-radius: 16px;
+
+      background: var(--card);
+
+      transition: .25s;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-5px);
+
+      border-color:
+        rgba(139,92,246,.35);
+    }
+
+    .skill-icon {
+      font-size: 25px;
+      margin-bottom: 17px;
+    }
+
+    .skill-card h3 {
+      font-size: 17px;
+      margin-bottom: 8px;
+    }
+
+    .skill-card p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+
+      gap: 7px;
+
+      margin-top: 16px;
+    }
+
+    .tag {
+      padding: 5px 9px;
+
+      border-radius: 6px;
+
+      background: rgba(255,255,255,.06);
+
+      color: #b9bfcd;
+
+      font-size: 11px;
+    }
+
+    /* ================= EXPERIENCE ================= */
+
+    .timeline {
+      margin-top: 50px;
+
+      border-left: 1px solid rgba(139,92,246,.35);
+
+      padding-left: 30px;
+    }
+
+    .experience {
+      position: relative;
+
+      padding: 30px;
+
+      margin-bottom: 22px;
+
+      border: 1px solid var(--border);
+      border-radius: 16px;
+
+      background: var(--card);
+    }
+
+    .experience::before {
+      content: "";
+
+      position: absolute;
+
+      width: 10px;
+      height: 10px;
+
+      border-radius: 50%;
+
+      background: var(--purple);
+
+      left: -36px;
+      top: 36px;
+
+      box-shadow: 0 0 15px var(--purple);
+    }
+
+    .experience-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+
+      margin-bottom: 8px;
+    }
+
+    .experience h3 {
+      font-size: 19px;
+    }
+
+    .company {
+      color: var(--purple);
+      font-size: 13px;
+    }
+
+    .date {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .experience p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .experience ul {
+      margin-top: 15px;
+      padding-left: 18px;
+
+      color: #b7bdca;
+
+      font-size: 13px;
+    }
+
+    .experience li {
+      margin-bottom: 7px;
+    }
+
+    /* ================= PROJECTS ================= */
+
+    .projects {
+      margin-top: 45px;
+
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+
+      gap: 18px;
+    }
+
+    .project {
+      padding: 28px;
+
+      border: 1px solid var(--border);
+      border-radius: 18px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(139,92,246,.09),
+          rgba(255,255,255,.03)
+        );
+
+      transition: .25s;
+    }
+
+    .project:hover {
+      transform: translateY(-6px);
+      border-color: rgba(139,92,246,.35);
+    }
+
+    .project-number {
+      color: #636b7c;
+      font-size: 12px;
+      margin-bottom: 20px;
+    }
+
+    .project h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .project p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    /* ================= ACHIEVEMENTS ================= */
+
+    .achievements {
+      margin-top: 40px;
+
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 15px;
+    }
+
+    .achievement {
+      padding: 25px;
+
+      border: 1px solid var(--border);
+      border-radius: 15px;
+
+      background: var(--card);
+    }
+
+    .achievement-icon {
+      font-size: 25px;
+      margin-bottom: 15px;
+    }
+
+    .achievement h3 {
+      font-size: 16px;
+      margin-bottom: 6px;
+    }
+
+    .achievement p {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    /* ================= CONTACT ================= */
+
+    .contact {
+      max-width: 900px;
+
+      margin: 80px auto;
+
+      padding: 70px 35px;
+
+      text-align: center;
+
+      border: 1px solid rgba(139,92,246,.25);
+      border-radius: 25px;
+
+      background:
+        radial-gradient(
+          circle at center,
+          rgba(139,92,246,.16),
+          transparent 65%
+        ),
+        rgba(255,255,255,.025);
+    }
+
+    .contact h2 {
+      font-size: clamp(38px,6vw,60px);
+
+      line-height: 1;
+
+      letter-spacing: -3px;
+
+      margin-bottom: 18px;
+    }
+
+    .contact p {
+      max-width: 550px;
+
+      margin: auto;
+
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .email {
+      display: inline-block;
+
+      margin-top: 25px;
+
+      color: #bdaaff;
+
+      font-size: 17px;
+      font-weight: 700;
+    }
+
+    .socials {
+      display: flex;
+      justify-content: center;
+
+      gap: 12px;
+
+      margin-top: 25px;
+    }
+
+    .social {
+      padding: 10px 15px;
+
+      border: 1px solid var(--border);
+      border-radius: 8px;
+
+      color: #b9bfcc;
+
+      font-size: 12px;
+
+      transition: .2s;
+    }
+
+    .social:hover {
+      color: white;
+      border-color: rgba(139,92,246,.4);
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer {
+      border-top: 1px solid var(--border);
+
+      padding: 35px 25px;
+
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .footer {
+      max-width: 1150px;
+      margin: auto;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* ================= RESPONSIVE ================= */
+
+    @media(max-width:850px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero-description {
+        margin: auto;
+      }
+
+      .buttons {
+        justify-content: center;
+      }
+
+      .stats {
+        grid-template-columns: repeat(2,1fr);
+        gap: 20px;
+      }
+
+      .stat:nth-child(2) {
+        border-right: none;
+      }
+
+      .skills,
+      .projects,
+      .achievements {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-card {
+        max-width: 450px;
+        margin: auto;
+      }
+    }
+
+    @media(max-width:500px) {
+
+      h1 {
+        letter-spacing: -3px;
+      }
+
+      .hero {
+        padding-top: 140px;
+      }
+
+      .buttons {
+        flex-direction: column;
+      }
+
+      .stats {
+        margin: 0 20px 40px;
+      }
+
+      .experience-header {
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      .footer {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ================= NAVBAR ================= -->
+
+  <nav>
+    <div class="nav">
+
+      <a href="#home" class="logo">
+        Fahad<span>.</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+      </ul>
+
+      <a
+        href="mailto:ashraffahad498@gmail.com"
+        class="nav-contact"
+      >
+        Contact Me
+      </a>
+
+    </div>
+  </nav>
+
+
+  <!-- ================= HERO ================= -->
+
+  <main id="home">
+
+    <div class="hero">
+
+      <div>
+
+        <div class="availability">
+          <span class="dot"></span>
+          Backend Engineer
+        </div>
+
+        <h1>
+          Building
+          <span class="gradient">scalable</span>
+          backend systems.
+        </h1>
+
+        <div class="hero-role">
+          Software Engineer · Node.js · TypeScript · AWS
+        </div>
+
+        <p class="hero-description">
+          I'm Fahad, a Backend Software Engineer with 4+ years
+          of experience building scalable APIs, microservices,
+          data-processing pipelines and production systems.
+          I focus on performance, reliability and clean
+          engineering.
+        </p>
+
+        <div class="buttons">
+
+          <a
+            href="#projects"
+            class="btn primary"
+          >
+            View My Work →
+          </a>
+
+          <a
+            href="mailto:ashraffahad498@gmail.com"
+            class="btn secondary"
+          >
+            Let's Talk
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- PROFILE -->
+
+      <div class="profile-card">
+
+        <div class="profile-circle">
+          AF
+        </div>
+
+        <h2>
+          Fahad
+        </h2>
+
+        <div class="role">
+          Backend Software Engineer
+        </div>
+
+        <div class="profile-info">
+
+          <div class="info">
+            <span>Experience</span>
+            <strong>4+ Years</strong>
+          </div>
+
+          <div class="info">
+            <span>Primary Stack</span>
+            <strong>Node.js</strong>
+          </div>
+
+          <div class="info">
+            <span>Specialization</span>
+            <strong>Backend</strong>
+          </div>
+
+          <div class="info">
+            <span>Cloud</span>
+            <strong>AWS</strong>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- ================= STATS ================= -->
+
+    <div class="stats">
+
+      <div class="stat">
+        <div class="number">4+</div>
+        <div class="label">Years Experience</div>
+      </div>
+
+      <div class="stat">
+        <div class="number">100K+</div>
+        <div class="label">Daily API Requests</div>
+      </div>
+
+      <div class="stat">
+        <div class="number">65%</div>
+        <div class="label">API Performance Gain</div>
+      </div>
+
+      <div class="stat">
+        <div class="number">85%</div>
+        <div class="label">Test Coverage</div>
+      </div>
+
+    </div>
+
+
+    <!-- ================= ABOUT ================= -->
+
+    <section id="about">
+
+      <div class="section-label">
+        About Me
+      </div>
+
+      <h2 class="section-title">
+        Backend engineering with
+        <span class="gradient">real-world impact.</span>
+      </h2>
+
+      <p class="section-description">
+        I specialize in designing and developing production
+        backend systems using Node.js and TypeScript. My work
+        spans scalable REST APIs, microservices, authentication,
+        caching, asynchronous processing and cloud infrastructure.
+      </p>
+
+    </section>
+
+
+    <!-- ================= SKILLS ================= -->
+
+    <section id="skills">
+
+      <div class="section-label">
+        Technical Skills
+      </div>
+
+      <h2 class="section-title">
+        Tools I build with.
+      </h2>
+
+      <p class="section-description">
+        A backend-focused technology stack with practical
+        production experience.
+      </p>
+
+
+      <div class="skills">
+
+        <div class="skill-card">
+
+          <div class="skill-icon">
+            ⚙️
+          </div>
+
+          <h3>
+            Backend
+          </h3>
+
+          <p>
+            Building scalable APIs and distributed backend
+            services.
+          </p>
+
+          <div class="tags">
+            <span class="tag">Node.js</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">Express</span>
+            <span class="tag">REST APIs</span>
+            <span class="tag">Microservices</span>
+          </div>
+
+        </div>
+
+
+        <div class="skill-card">
+
+          <div class="skill-icon">
+            🗄️
+          </div>
+
+          <h3>
+            Databases
+          </h3>
+
+          <p>
+            Designing efficient data access patterns and
+            optimizing database performance.
+          </p>
+
+          <div class="tags">
+            <span class="tag">MongoDB</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">Redis</span>
+            <span class="tag">Aggregation</span>
+          </div>
+
+        </div>
+
+
+        <div class="skill-card">
+
+          <div class="skill-icon">
+            ☁️
+          </div>
+
+          <h3>
+            Cloud & DevOps
+          </h3>
+
+          <p>
+            Deploying and operating production applications
+            on cloud infrastructure.
+          </p>
+
+          <div class="tags">
+            <span class="tag">AWS</span>
+            <span class="tag">Docker</span>
+            <span class="tag">S3</span>
+            <span class="tag">Linux</span>
+          </div>
+
+        </div>
+
+
+        <div class="skill-card">
+
+          <div class="skill-icon">
+            🔐
+          </div>
+
+          <h3>
+            Security
+          </h3>
+
+          <p>
+            Implementing secure authentication and
+            authorization systems.
+          </p>
+
+          <div class="tags">
+            <span class="tag">JWT</span>
+            <span class="tag">RBAC</span>
+            <span class="tag">Authentication</span>
+            <span class="tag">Authorization</span>
+          </div>
+
+        </div>
+
+
+        <div class="skill-card">
+
+          <div class="skill-icon">
+            📨
+          </div>
+
+          <h3>
+            Distributed Systems
+          </h3>
+
+          <p>
+            Designing asynchronous and event-driven
+            processing workflows.
+          </p>
+
+          <div class="tags">
+            <span class="tag">Kafka</span>
+            <span class="tag">Redis</span>
+            <span class="tag">Async Processing</span>
+            <span class="tag">Queues</span>
+          </div>
+
+        </div>
+
+
+        <div class="skill-card">
+
+          <div class="skill-icon">
+            🧪
+          </div>
+
+          <h3>
+            Testing
+          </h3>
+
+          <p>
+            Writing reliable automated tests for production
+            backend systems.
+          </p>
+
+          <div class="tags">
+            <span class="tag">Jest</span>
+            <span class="tag">Unit Testing</span>
+            <span class="tag">API Testing</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= EXPERIENCE ================= -->
+
+    <section id="experience">
+
+      <div class="section-label">
+        Experience
+      </div>
+
+      <h2 class="section-title">
+        Where I've worked.
+      </h2>
+
+
+      <div class="timeline">
+
+        <div class="experience">
+
+          <div class="experience-header">
+
+            <div>
+              <h3>
+                Backend Software Engineer
+              </h3>
+
+              <div class="company">
+                Dhwani Rural Information Systems
+              </div>
+            </div>
+
+            <div class="date">
+              Feb 2022 — Present
+            </div>
+
+          </div>
+
+          <p>
+            Engineering scalable backend systems for enterprise
+            products and government/CSR initiatives.
+          </p>
+
+          <ul>
+
+            <li>
+              Architected Node.js backend services supporting
+              100K+ daily API requests.
+            </li>
+
+            <li>
+              Optimized MongoDB queries and indexing, reducing
+              API response time from 850ms to 300ms.
+            </li>
+
+            <li>
+              Implemented Redis caching with automatic
+              invalidation to reduce database load.
+            </li>
+
+            <li>
+              Built JWT authentication and role-based
+              authorization systems.
+            </li>
+
+            <li>
+              Developed asynchronous bulk-processing pipelines
+              handling thousands of records.
+            </li>
+
+            <li>
+              Integrated AWS S3 for scalable document storage.
+            </li>
+
+            <li>
+              Built Jest test suites achieving 85% code coverage.
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= PROJECTS ================= -->
+
+    <section id="projects">
+
+      <div class="section-label">
+        Selected Projects
+      </div>
+
+      <h2 class="section-title">
+        Things I've built.
+      </h2>
+
+      <p class="section-description">
+        Production systems and engineering projects focused
+        on scalability, performance and real-world workflows.
+      </p>
+
+
+      <div class="projects">
+
+        <!-- PROJECT 1 -->
+
+        <div class="project">
+
+          <div class="project-number">
+            01 / CSR PLATFORM
+          </div>
+
+          <h3>
+            mGrant
+          </h3>
+
+          <p>
+            Built scalable CSR grant-management workflows
+            and reusable backend modules. Improved platform
+            performance through Redis caching, query optimization,
+            bulk processing and stronger data validation.
+          </p>
+
+          <div class="tags">
+            <span class="tag">Node.js</span>
+            <span class="tag">MongoDB</span>
+            <span class="tag">Redis</span>
+            <span class="tag">REST APIs</span>
+          </div>
+
+        </div>
+
+
+        <!-- PROJECT 2 -->
+
+        <div class="project">
+
+          <div class="project-number">
+            02 / HEALTHCARE
+          </div>
+
+          <h3>
+            ABHA Integration
+          </h3>
+
+          <p>
+            Integrated ABDM Gateway APIs for ABHA creation,
+            verification, consent management and health-record
+            linking. Backend APIs supported mobile applications
+            serving 50K+ users.
+          </p>
+
+          <div class="tags">
+            <span class="tag">Node.js</span>
+            <span class="tag">ABDM</span>
+            <span class="tag">REST APIs</span>
+            <span class="tag">JWT</span>
+          </div>
+
+        </div>
+
+
+        <!-- PROJECT 3 -->
+
+        <div class="project">
+
+          <div class="project-number">
+            03 / AI PLATFORM
+          </div>
+
+          <h3>
+            SpeakUp
+          </h3>
+
+          <p>
+            Developed an AI-powered complaint-management
+            platform with automated complaint categorization.
+            Integrated Hugging Face models and designed
+            end-to-end backend APIs.
+          </p>
+
+          <div class="tags">
+            <span class="tag">Node.js</span>
+            <span class="tag">AI</span>
+            <span class="tag">Hugging Face</span>
+            <span class="tag">APIs</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= ACHIEVEMENTS ================= -->
+
+    <section>
+
+      <div class="section-label">
+        Recognition
+      </div>
+
+      <h2 class="section-title">
+        A few things I'm proud of.
+      </h2>
+
+
+      <div class="achievements">
+
+        <div class="achievement">
+
+          <div class="achievement-icon">
+            🏆
+          </div>
+
+          <h3>
+            Recognition Award
+          </h3>
+
+          <p>
+            Recognized for an enterprise migration strategy
+            completed with minimal downtime.
+          </p>
+
+        </div>
+
+
+        <div class="achievement">
+
+          <div class="achievement-icon">
+            🥇
+          </div>
+
+          <h3>
+            First Prize — AI Manthan
+          </h3>
+
+          <p>
+            First prize for an AI-powered complaint-management
+            platform.
+          </p>
+
+        </div>
+
+
+        <div class="achievement">
+
+          <div class="achievement-icon">
+            ⚡
+          </div>
+
+          <h3>
+            65% Performance Improvement
+          </h3>
+
+          <p>
+            Reduced backend API response time from 850ms
+            to 300ms through database optimization and caching.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= CONTACT ================= -->
+
+    <div class="contact" id="contact">
+
+      <div class="section-label">
+        Get In Touch
+      </div>
+
+      <h2>
+        Let's build something
+        <span class="gradient">great.</span>
+      </h2>
+
+      <p>
+        I'm always interested in discussing backend engineering,
+        scalable systems, interesting products and challenging
+        technical problems.
+      </p>
+
+      <a
+        href="mailto:ashraffahad498@gmail.com"
+        class="email"
+      >
+        ashraffahad498@gmail.com
+      </a>
+
+      <div class="socials">
+
+        <a
+          href="https://linkedin.com/in/backendbyfahad"
+          target="_blank"
+          class="social"
+        >
+          LinkedIn ↗
+        </a>
+
+        <a
+          href="https://github.com/fahad1998-hub"
+          target="_blank"
+          class="social"
+        >
+          GitHub ↗
+        </a>
+
+        <a
+          href="tel:+918218002203"
+          class="social"
+        >
+          +91 82180 02203
+        </a>
+
+      </div>
+
+    </div>
+
+  </main>
+
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer>
+
+    <div class="footer">
+
+      <div>
+        © 2026 Fahad. Built with Node.js.
+      </div>
+
+      <div>
+        Backend Engineer · Node.js · TypeScript · AWS
+      </div>
+
+    </div>
+
+  </footer>
+
+</body>
+</html>
