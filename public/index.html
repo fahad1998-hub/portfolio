@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Fahad — Backend Software Engineer</title>
-
-  <meta
-    name="description"
-    content="Fahad is a Backend Software Engineer specializing in Node.js, TypeScript, microservices, REST APIs and AWS."
-  />
+  <title>Fahad — Software Engineer | Backend, DevOps & AI Automation</title>
+  <meta name="description"
+    content="Fahad is a Software Engineer specializing in Node.js, TypeScript, AWS, DevOps, CI/CD, scalable backend systems and AI-assisted DevOps automation." />
 
   <style>
     * {
@@ -20,49 +18,88 @@
 
     :root {
       --bg: #07080d;
-      --bg2: #0c0f18;
-      --card: rgba(255,255,255,.045);
-      --border: rgba(255,255,255,.10);
+      --bg-soft: #0b0e15;
+      --card: rgba(255, 255, 255, .045);
+      --card-strong: rgba(255, 255, 255, .065);
+      --border: rgba(255, 255, 255, .10);
+      --border-hover: rgba(139, 92, 246, .42);
       --text: #f8fafc;
       --muted: #9299aa;
+      --muted-light: #b8bfcd;
       --purple: #8b5cf6;
+      --purple-light: #a78bfa;
       --blue: #38bdf8;
       --green: #34d399;
+      --max: 1150px;
     }
 
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: 90px;
     }
 
     body {
-      font-family:
-        Inter,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        sans-serif;
-
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background:
-        radial-gradient(
-          circle at 20% 10%,
-          rgba(139,92,246,.15),
-          transparent 30%
-        ),
-        radial-gradient(
-          circle at 85% 30%,
-          rgba(56,189,248,.10),
-          transparent 30%
-        ),
+        radial-gradient(circle at 15% 8%, rgba(139, 92, 246, .14), transparent 28%),
+        radial-gradient(circle at 88% 22%, rgba(56, 189, 248, .08), transparent 26%),
         var(--bg);
-
       color: var(--text);
       line-height: 1.6;
       overflow-x: hidden;
     }
 
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .18;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, .025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .025) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: linear-gradient(to bottom, black, transparent 80%);
+    }
+
     a {
       color: inherit;
       text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 50px));
+      margin: auto;
+    }
+
+    /* ================= ICONS ================= */
+
+    .icon {
+      width: 21px;
+      height: 21px;
+      display: inline-block;
+      flex: 0 0 auto;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+    }
+
+    .icon-box {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      color: var(--purple-light);
+      background: rgba(139, 92, 246, .09);
+      border: 1px solid rgba(139, 92, 246, .18);
+      margin-bottom: 18px;
     }
 
     /* ================= NAVBAR ================= */
@@ -73,19 +110,16 @@
       left: 0;
       right: 0;
       z-index: 100;
-
-      background: rgba(7,8,13,.75);
+      background: rgba(7, 8, 13, .76);
       backdrop-filter: blur(18px);
-
-      border-bottom: 1px solid rgba(255,255,255,.06);
+      border-bottom: 1px solid rgba(255, 255, 255, .06);
     }
 
     .nav {
-      max-width: 1150px;
+      max-width: var(--max);
       margin: auto;
-
-      padding: 18px 25px;
-
+      min-height: 72px;
+      padding: 15px 25px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -103,13 +137,13 @@
 
     .nav-links {
       display: flex;
-      gap: 30px;
+      gap: 28px;
       list-style: none;
     }
 
     .nav-links a {
       color: #aeb4c2;
-      font-size: 14px;
+      font-size: 13px;
       transition: .2s;
     }
 
@@ -118,29 +152,58 @@
     }
 
     .nav-contact {
-      padding: 10px 17px;
-
-      border: 1px solid rgba(139,92,246,.4);
+      padding: 9px 15px;
+      border: 1px solid rgba(139, 92, 246, .4);
       border-radius: 9px;
-
       color: white;
       font-size: 13px;
+      background: rgba(139, 92, 246, .1);
+      transition: .2s;
+    }
 
-      background: rgba(139,92,246,.1);
+    .nav-contact:hover {
+      background: rgba(139, 92, 246, .18);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: white;
+      background: rgba(255, 255, 255, .04);
+      cursor: pointer;
+      place-items: center;
+    }
+
+    .mobile-menu {
+      display: none;
+      padding: 0 25px 18px;
+      border-top: 1px solid rgba(255, 255, 255, .06);
+    }
+
+    .mobile-menu.open {
+      display: grid;
+      gap: 4px;
+    }
+
+    .mobile-menu a {
+      padding: 11px 8px;
+      color: var(--muted-light);
+      font-size: 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, .04);
     }
 
     /* ================= HERO ================= */
 
     .hero {
-      min-height: 850px;
-
-      max-width: 1150px;
+      min-height: 820px;
+      max-width: var(--max);
       margin: auto;
-
-      padding: 170px 25px 100px;
-
+      padding: 155px 25px 90px;
       display: grid;
-      grid-template-columns: 1.25fr .75fr;
+      grid-template-columns: 1.2fr .8fr;
       align-items: center;
       gap: 70px;
     }
@@ -149,92 +212,72 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-
       padding: 7px 13px;
-
-      border: 1px solid rgba(52,211,153,.25);
-      background: rgba(52,211,153,.06);
-
+      border: 1px solid rgba(52, 211, 153, .25);
+      background: rgba(52, 211, 153, .06);
       border-radius: 50px;
-
       color: #7eeac0;
       font-size: 12px;
-
-      margin-bottom: 25px;
+      margin-bottom: 24px;
     }
 
     .dot {
       width: 7px;
       height: 7px;
-
       border-radius: 50%;
-
       background: var(--green);
       box-shadow: 0 0 12px var(--green);
     }
 
     h1 {
-      font-size: clamp(52px, 7vw, 82px);
+      max-width: 850px;
+      font-size: clamp(50px, 7vw, 82px);
       line-height: .98;
       letter-spacing: -5px;
       margin-bottom: 25px;
     }
 
     .gradient {
-      background: linear-gradient(
-        100deg,
-        #fff,
-        #a78bfa,
-        #38bdf8
-      );
-
+      background: linear-gradient(100deg, #fff, #a78bfa 52%, #38bdf8);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
     }
 
     .hero-role {
-      font-size: 22px;
+      font-size: 20px;
       color: #d5d9e2;
       margin-bottom: 18px;
     }
 
     .hero-description {
-      max-width: 650px;
-
+      max-width: 680px;
       color: var(--muted);
-
-      font-size: 17px;
-      line-height: 1.8;
+      font-size: 16px;
+      line-height: 1.85;
     }
 
     .buttons {
       display: flex;
-      gap: 13px;
-
-      margin-top: 35px;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
     }
 
     .btn {
-      padding: 13px 21px;
-
+      padding: 12px 19px;
       border-radius: 10px;
-
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 700;
-
       transition: .25s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
     }
 
     .primary {
-      background: linear-gradient(
-        135deg,
-        var(--purple),
-        #6366f1
-      );
-
-      box-shadow:
-        0 15px 40px rgba(139,92,246,.25);
+      background: linear-gradient(135deg, var(--purple), #6366f1);
+      box-shadow: 0 15px 40px rgba(139, 92, 246, .22);
     }
 
     .primary:hover {
@@ -243,88 +286,67 @@
 
     .secondary {
       border: 1px solid var(--border);
-      background: rgba(255,255,255,.04);
+      background: rgba(255, 255, 255, .04);
     }
 
     .secondary:hover {
-      background: rgba(255,255,255,.08);
+      background: rgba(255, 255, 255, .08);
+      transform: translateY(-2px);
     }
 
-    /* ================= PROFILE CARD ================= */
+    /* ================= PROFILE ================= */
 
     .profile-card {
       position: relative;
-
-      padding: 35px;
-
+      padding: 34px;
       border: 1px solid var(--border);
-      border-radius: 25px;
-
+      border-radius: 24px;
       background: var(--card);
       backdrop-filter: blur(20px);
-
-      box-shadow:
-        0 30px 100px rgba(0,0,0,.35);
-
+      box-shadow: 0 30px 100px rgba(0, 0, 0, .35);
       text-align: center;
     }
 
     .profile-circle {
-      width: 125px;
-      height: 125px;
+      width: 150px;
+      height: 170px;
+      margin: auto auto 20px;
 
-      margin: auto auto 22px;
+      display: block;
+      border-radius: 24px;
 
-      display: grid;
-      place-items: center;
+      object-fit: cover;
+      object-position: center 35%;
 
-      border-radius: 50%;
-
-      font-size: 42px;
-      font-weight: 800;
-
-      background:
-        linear-gradient(
-          135deg,
-          rgba(139,92,246,.35),
-          rgba(56,189,248,.25)
-        );
-
-      border: 1px solid rgba(255,255,255,.12);
-
-      box-shadow:
-        0 0 70px rgba(139,92,246,.2);
+      border: 2px solid rgba(255, 255, 255, 0.14);
+      box-shadow: 0 0 70px rgba(139, 92, 246, 0.2);
     }
 
     .profile-card h2 {
-      font-size: 24px;
-      margin-bottom: 5px;
+      font-size: 23px;
+      margin-bottom: 4px;
     }
 
     .profile-card .role {
-      color: var(--purple);
-      font-size: 14px;
+      color: var(--purple-light);
+      font-size: 13px;
       font-weight: 600;
     }
 
     .profile-info {
-      margin-top: 25px;
-
+      margin-top: 24px;
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 9px;
     }
 
     .info {
       display: flex;
       justify-content: space-between;
-
-      padding: 12px;
-
+      gap: 12px;
+      padding: 11px 12px;
       border-radius: 9px;
-
-      background: rgba(255,255,255,.035);
-
+      background: rgba(255, 255, 255, .035);
       font-size: 12px;
     }
 
@@ -336,23 +358,18 @@
 
     .stats {
       max-width: 1050px;
-
-      margin: -20px auto 80px;
-
-      padding: 25px;
-
+      margin: -15px auto 65px;
+      padding: 23px;
       display: grid;
-      grid-template-columns: repeat(4,1fr);
-
+      grid-template-columns: repeat(4, 1fr);
       border: 1px solid var(--border);
       border-radius: 18px;
-
-      background: rgba(255,255,255,.035);
+      background: rgba(255, 255, 255, .035);
     }
 
     .stat {
       text-align: center;
-
+      padding: 0 12px;
       border-right: 1px solid var(--border);
     }
 
@@ -361,153 +378,171 @@
     }
 
     .number {
-      font-size: 28px;
+      font-size: 27px;
       font-weight: 800;
     }
 
     .label {
       color: var(--muted);
-      font-size: 12px;
+      font-size: 11px;
+      margin-top: 2px;
     }
 
     /* ================= SECTIONS ================= */
 
     section {
-      max-width: 1150px;
+      max-width: var(--max);
       margin: auto;
-      padding: 100px 25px;
+      padding: 95px 25px;
     }
 
     .section-label {
       color: var(--purple);
-
       font-size: 11px;
       font-weight: 800;
-
       letter-spacing: 2px;
       text-transform: uppercase;
-
       margin-bottom: 12px;
     }
 
     .section-title {
-      font-size: clamp(35px,5vw,52px);
-
+      font-size: clamp(34px, 5vw, 52px);
       letter-spacing: -2px;
       line-height: 1.05;
-
-      margin-bottom: 18px;
+      margin-bottom: 17px;
     }
 
     .section-description {
-      max-width: 650px;
-
+      max-width: 720px;
       color: var(--muted);
-      font-size: 15px;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    /* ================= ABOUT ================= */
+
+    .about-grid {
+      margin-top: 42px;
+      display: grid;
+      grid-template-columns: 1.3fr .7fr;
+      gap: 18px;
+    }
+
+    .about-card {
+      padding: 28px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: var(--card);
+    }
+
+    .about-card h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .about-card p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.85;
+    }
+
+    .focus-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .focus-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted-light);
+      font-size: 12px;
+    }
+
+    .check {
+      color: var(--green);
+      font-weight: 800;
     }
 
     /* ================= SKILLS ================= */
 
     .skills {
-      margin-top: 45px;
-
+      margin-top: 42px;
       display: grid;
-      grid-template-columns: repeat(3,1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 16px;
     }
 
     .skill-card {
-      padding: 25px;
-
+      padding: 24px;
       border: 1px solid var(--border);
       border-radius: 16px;
-
       background: var(--card);
-
       transition: .25s;
     }
 
-    .skill-card:hover {
-      transform: translateY(-5px);
-
-      border-color:
-        rgba(139,92,246,.35);
-    }
-
-    .skill-icon {
-      font-size: 25px;
-      margin-bottom: 17px;
+    .skill-card:hover,
+    .project:hover,
+    .achievement:hover,
+    .about-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-hover);
     }
 
     .skill-card h3 {
       font-size: 17px;
-      margin-bottom: 8px;
+      margin-bottom: 7px;
     }
 
     .skill-card p {
       color: var(--muted);
-      font-size: 13px;
+      font-size: 12px;
+      line-height: 1.7;
     }
 
     .tags {
       display: flex;
       flex-wrap: wrap;
-
       gap: 7px;
-
-      margin-top: 16px;
+      margin-top: 15px;
     }
 
     .tag {
-      padding: 5px 9px;
-
+      padding: 5px 8px;
       border-radius: 6px;
-
-      background: rgba(255,255,255,.06);
-
+      background: rgba(255, 255, 255, .055);
       color: #b9bfcd;
-
-      font-size: 11px;
+      font-size: 10px;
+      border: 1px solid rgba(255, 255, 255, .04);
     }
 
     /* ================= EXPERIENCE ================= */
 
     .timeline {
-      margin-top: 50px;
-
-      border-left: 1px solid rgba(139,92,246,.35);
-
+      margin-top: 45px;
+      border-left: 1px solid rgba(139, 92, 246, .35);
       padding-left: 30px;
     }
 
     .experience {
       position: relative;
-
-      padding: 30px;
-
-      margin-bottom: 22px;
-
+      padding: 29px;
+      margin-bottom: 20px;
       border: 1px solid var(--border);
       border-radius: 16px;
-
       background: var(--card);
     }
 
     .experience::before {
       content: "";
-
       position: absolute;
-
       width: 10px;
       height: 10px;
-
       border-radius: 50%;
-
       background: var(--purple);
-
       left: -36px;
-      top: 36px;
-
+      top: 35px;
       box-shadow: 0 0 15px var(--purple);
     }
 
@@ -515,7 +550,6 @@
       display: flex;
       justify-content: space-between;
       gap: 20px;
-
       margin-bottom: 8px;
     }
 
@@ -524,13 +558,14 @@
     }
 
     .company {
-      color: var(--purple);
+      color: var(--purple-light);
       font-size: 13px;
     }
 
     .date {
       color: var(--muted);
       font-size: 12px;
+      white-space: nowrap;
     }
 
     .experience p {
@@ -541,87 +576,135 @@
     .experience ul {
       margin-top: 15px;
       padding-left: 18px;
-
       color: #b7bdca;
-
-      font-size: 13px;
+      font-size: 12.5px;
     }
 
     .experience li {
-      margin-bottom: 7px;
+      margin-bottom: 8px;
     }
 
     /* ================= PROJECTS ================= */
 
     .projects {
-      margin-top: 45px;
-
+      margin-top: 42px;
       display: grid;
-      grid-template-columns: repeat(3,1fr);
-
-      gap: 18px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 17px;
     }
 
     .project {
-      padding: 28px;
-
+      padding: 25px;
       border: 1px solid var(--border);
       border-radius: 18px;
-
-      background:
-        linear-gradient(
-          145deg,
-          rgba(139,92,246,.09),
-          rgba(255,255,255,.03)
-        );
-
+      background: linear-gradient(145deg, rgba(139, 92, 246, .08), rgba(255, 255, 255, .03));
       transition: .25s;
     }
 
-    .project:hover {
-      transform: translateY(-6px);
-      border-color: rgba(139,92,246,.35);
+    .project-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .project-icon {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border-radius: 11px;
+      color: var(--purple-light);
+      background: rgba(139, 92, 246, .09);
+      border: 1px solid rgba(139, 92, 246, .17);
     }
 
     .project-number {
       color: #636b7c;
-      font-size: 12px;
-      margin-bottom: 20px;
+      font-size: 10px;
+      letter-spacing: 1px;
+      font-weight: 700;
     }
 
     .project h3 {
-      font-size: 20px;
-      margin-bottom: 10px;
+      font-size: 19px;
+      margin-bottom: 9px;
     }
 
     .project p {
       color: var(--muted);
+      font-size: 12px;
+      line-height: 1.75;
+    }
+
+    /* ================= DEVOPS / AI ================= */
+
+    .automation-section {
+      position: relative;
+    }
+
+    .automation-grid {
+      margin-top: 42px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .automation-card {
+      padding: 28px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: var(--card);
+    }
+
+    .automation-card h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .automation-card p {
+      color: var(--muted);
       font-size: 13px;
-      line-height: 1.7;
+      line-height: 1.8;
+    }
+
+    .workflow {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .workflow-step {
+      padding: 8px 10px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: #cbd2df;
+      background: rgba(255, 255, 255, .035);
+      font-size: 10px;
+    }
+
+    .arrow {
+      color: var(--purple-light);
+      font-size: 12px;
     }
 
     /* ================= ACHIEVEMENTS ================= */
 
     .achievements {
       margin-top: 40px;
-
       display: grid;
-      grid-template-columns: repeat(3,1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 15px;
     }
 
     .achievement {
-      padding: 25px;
-
+      padding: 24px;
       border: 1px solid var(--border);
       border-radius: 15px;
-
       background: var(--card);
-    }
-
-    .achievement-icon {
-      font-size: 25px;
-      margin-bottom: 15px;
+      transition: .25s;
     }
 
     .achievement h3 {
@@ -632,119 +715,118 @@
     .achievement p {
       color: var(--muted);
       font-size: 12px;
+      line-height: 1.7;
+    }
+
+    /* ================= EDUCATION ================= */
+
+    .education-card {
+      margin-top: 38px;
+      padding: 26px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: var(--card);
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .education-card h3 {
+      font-size: 17px;
+      margin-bottom: 4px;
+    }
+
+    .education-card p,
+    .education-year {
+      color: var(--muted);
+      font-size: 12px;
     }
 
     /* ================= CONTACT ================= */
 
     .contact {
       max-width: 900px;
-
-      margin: 80px auto;
-
-      padding: 70px 35px;
-
+      margin: 70px auto;
+      padding: 65px 35px;
       text-align: center;
-
-      border: 1px solid rgba(139,92,246,.25);
+      border: 1px solid rgba(139, 92, 246, .25);
       border-radius: 25px;
-
       background:
-        radial-gradient(
-          circle at center,
-          rgba(139,92,246,.16),
-          transparent 65%
-        ),
-        rgba(255,255,255,.025);
+        radial-gradient(circle at center, rgba(139, 92, 246, .15), transparent 65%),
+        rgba(255, 255, 255, .025);
     }
 
     .contact h2 {
-      font-size: clamp(38px,6vw,60px);
-
+      font-size: clamp(38px, 6vw, 60px);
       line-height: 1;
-
       letter-spacing: -3px;
-
       margin-bottom: 18px;
     }
 
     .contact p {
-      max-width: 550px;
-
+      max-width: 600px;
       margin: auto;
-
       color: var(--muted);
-      font-size: 14px;
+      font-size: 13px;
+      line-height: 1.8;
     }
 
     .email {
       display: inline-block;
-
-      margin-top: 25px;
-
+      margin-top: 24px;
       color: #bdaaff;
-
-      font-size: 17px;
+      font-size: 16px;
       font-weight: 700;
     }
 
     .socials {
       display: flex;
       justify-content: center;
-
-      gap: 12px;
-
-      margin-top: 25px;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 23px;
     }
 
     .social {
-      padding: 10px 15px;
-
+      padding: 9px 13px;
       border: 1px solid var(--border);
       border-radius: 8px;
-
       color: #b9bfcc;
-
-      font-size: 12px;
-
+      font-size: 11px;
       transition: .2s;
     }
 
     .social:hover {
       color: white;
-      border-color: rgba(139,92,246,.4);
+      border-color: rgba(139, 92, 246, .4);
     }
 
     /* ================= FOOTER ================= */
 
     footer {
       border-top: 1px solid var(--border);
-
-      padding: 35px 25px;
-
+      padding: 32px 25px;
       color: var(--muted);
-      font-size: 12px;
+      font-size: 11px;
     }
 
     .footer {
-      max-width: 1150px;
+      max-width: var(--max);
       margin: auto;
-
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 15px;
     }
 
     /* ================= RESPONSIVE ================= */
 
-    @media(max-width:850px) {
-
-      .nav-links {
-        display: none;
-      }
-
+    @media (max-width: 950px) {
       .hero {
         grid-template-columns: 1fr;
         text-align: center;
+        gap: 45px;
       }
 
       .hero-description {
@@ -755,13 +837,90 @@
         justify-content: center;
       }
 
+      .profile-card {
+        max-width: 500px;
+        width: 100%;
+        margin: auto;
+      }
+
+      .skills,
+      .projects {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about-grid,
+      .automation-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+
+      .container,
+      section {
+        width: 100%;
+      }
+
+      .nav-links,
+      .nav-contact {
+        display: none;
+      }
+
+      .mobile-menu-btn {
+        display: grid;
+      }
+
+      .hero {
+        width: 100%;
+        padding: 135px 22px 70px;
+        min-height: auto;
+      }
+
+      h1 {
+        font-size: clamp(43px, 13vw, 64px);
+        letter-spacing: -3.5px;
+      }
+
+      .hero-role {
+        font-size: 17px;
+      }
+
+      .hero-description {
+        font-size: 14px;
+        line-height: 1.75;
+      }
+
       .stats {
-        grid-template-columns: repeat(2,1fr);
-        gap: 20px;
+        width: calc(100% - 30px);
+        margin: 0 auto 35px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px 0;
+        padding: 20px 10px;
       }
 
       .stat:nth-child(2) {
         border-right: none;
+      }
+
+      .stat:nth-child(-n+2) {
+        padding-bottom: 17px;
+      }
+
+      .stat:nth-child(n+3) {
+        padding-top: 17px;
+      }
+
+      .stat:nth-child(3) {
+        border-right: 1px solid var(--border);
+      }
+
+      section {
+        padding: 70px 22px;
+      }
+
+      .section-title {
+        font-size: 38px;
+        letter-spacing: -1.8px;
       }
 
       .skills,
@@ -770,38 +929,107 @@
         grid-template-columns: 1fr;
       }
 
-      .profile-card {
-        max-width: 450px;
-        margin: auto;
-      }
-    }
-
-    @media(max-width:500px) {
-
-      h1 {
-        letter-spacing: -3px;
+      .timeline {
+        padding-left: 20px;
       }
 
-      .hero {
-        padding-top: 140px;
+      .experience {
+        padding: 22px;
       }
 
-      .buttons {
-        flex-direction: column;
-      }
-
-      .stats {
-        margin: 0 20px 40px;
+      .experience::before {
+        left: -26px;
       }
 
       .experience-header {
         flex-direction: column;
-        gap: 5px;
+        gap: 4px;
+      }
+
+      .date {
+        white-space: normal;
+      }
+
+      .education-card {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .contact {
+        width: calc(100% - 30px);
+        margin: 40px auto;
+        padding: 50px 22px;
+      }
+
+      .contact h2 {
+        font-size: 40px;
+        letter-spacing: -2px;
+      }
+
+      .email {
+        font-size: 14px;
+        word-break: break-word;
       }
 
       .footer {
         flex-direction: column;
-        gap: 10px;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .nav {
+        padding-left: 17px;
+        padding-right: 17px;
+      }
+
+      .mobile-menu {
+        padding-left: 17px;
+        padding-right: 17px;
+      }
+
+      .hero {
+        padding-left: 17px;
+        padding-right: 17px;
+      }
+
+      h1 {
+        font-size: 43px;
+      }
+
+      .buttons {
+        width: 100%;
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .stats {
+        width: calc(100% - 20px);
+      }
+
+      .number {
+        font-size: 23px;
+      }
+
+      section {
+        padding-left: 17px;
+        padding-right: 17px;
+      }
+
+      .skill-card,
+      .project,
+      .achievement,
+      .about-card,
+      .automation-card {
+        padding: 21px;
+      }
+
+      .contact {
+        width: calc(100% - 20px);
       }
     }
   </style>
@@ -813,693 +1041,884 @@
 
   <nav>
     <div class="nav">
-
-      <a href="#home" class="logo">
-        Fahad<span>.</span>
-      </a>
+      <a href="#home" class="logo">Fahad<span>.</span></a>
 
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#projects">Projects</a></li>
+        <li><a href="#automation">AI / DevOps</a></li>
       </ul>
 
-      <a
-        href="mailto:ashraffahad498@gmail.com"
-        class="nav-contact"
-      >
-        Contact Me
-      </a>
+      <a href="mailto:ashraffahad498@gmail.com" class="nav-contact">Contact Me</a>
 
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open navigation menu">
+        <svg class="icon" viewBox="0 0 24 24">
+          <path d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#automation">AI / DevOps</a>
+      <a href="#contact">Contact</a>
     </div>
   </nav>
-
 
   <!-- ================= HERO ================= -->
 
   <main id="home">
 
     <div class="hero">
-
       <div>
-
         <div class="availability">
           <span class="dot"></span>
-          Backend Engineer
+          Software Engineer · Backend · DevOps · AI Automation
         </div>
 
         <h1>
-          Building
+          Engineering
           <span class="gradient">scalable</span>
-          backend systems.
+          systems & automation.
         </h1>
 
         <div class="hero-role">
-          Software Engineer · Node.js · TypeScript · AWS
+          Node.js · TypeScript · AWS · Docker · CI/CD · Agentic AI
         </div>
 
         <p class="hero-description">
-          I'm Fahad, a Backend Software Engineer with 4+ years
-          of experience building scalable APIs, microservices,
-          data-processing pipelines and production systems.
-          I focus on performance, reliability and clean
-          engineering.
+          I'm Fahad, a Software Engineer with 4.8 years of experience in backend
+          and full-stack development. I build scalable APIs, microservices,
+          production deployments, CI/CD automation and AI-assisted DevOps
+          workflows focused on reliability, performance and repeatable delivery.
         </p>
 
         <div class="buttons">
-
-          <a
-            href="#projects"
-            class="btn primary"
-          >
-            View My Work →
+          <a href="#projects" class="btn primary">
+            View My Work
+            <span>→</span>
           </a>
 
-          <a
-            href="mailto:ashraffahad498@gmail.com"
-            class="btn secondary"
-          >
+          <a href="mailto:ashraffahad498@gmail.com" class="btn secondary">
             Let's Talk
           </a>
 
+          <a href="https://github.com/fahad1998-hub" target="_blank" rel="noopener" class="btn secondary">
+            GitHub ↗
+          </a>
         </div>
-
       </div>
-
-
-      <!-- PROFILE -->
 
       <div class="profile-card">
+        <div class="profile-card">
+          <img class="profile-circle" src="./profile.jpg" alt="F" />
 
-        <div class="profile-circle">
-          AF
+          <h2>Fahad</h2>
+          <div class="role">Software Engineer</div>
+
+          <div class="profile-info">
+            <div class="info">
+              <span>Experience</span>
+              <strong>4.8 Years</strong>
+            </div>
+            <div class="info">
+              <span>Primary Stack</span>
+              <strong>Node.js</strong>
+            </div>
+            <div class="info">
+              <span>Cloud</span>
+              <strong>AWS</strong>
+            </div>
+            <div class="info">
+              <span>AI Automation</span>
+              <strong>AI + DevOps</strong>
+            </div>
+          </div>
         </div>
+      </div>
 
-        <h2>
-          Fahad
+      <!-- ================= STATS ================= -->
+
+      <div class="stats">
+        <div class="stat">
+          <div class="number">4+</div>
+          <div class="label">Years Experience</div>
+        </div>
+        <div class="stat">
+          <div class="number">50K+</div>
+          <div class="label">Daily API Requests</div>
+        </div>
+        <div class="stat">
+          <div class="number">65%</div>
+          <div class="label">API Response Improvement</div>
+        </div>
+        <div class="stat">
+          <div class="number">850 → 300ms</div>
+          <div class="label">Production Response Time</div>
+        </div>
+      </div>
+
+      <!-- ================= ABOUT ================= -->
+
+      <section id="about">
+        <div class="section-label">About Me</div>
+
+        <h2 class="section-title">
+          Backend engineering with
+          <span class="gradient">automation at the core.</span>
         </h2>
 
-        <div class="role">
-          Backend Software Engineer
+        <p class="section-description">
+          I specialize in Node.js and TypeScript backend engineering, with practical
+          experience across microservices, REST APIs, databases, AWS, Docker,
+          CI/CD and production support. More recently, my work has expanded into
+          AI-assisted and agentic workflows for DevOps automation.
+        </p>
+
+        <div class="about-grid">
+          <div class="about-card">
+            <div class="icon-box">
+              <svg class="icon" viewBox="0 0 24 24">
+                <path d="M12 3v18M3 12h18"></path>
+                <rect x="5" y="5" width="14" height="14" rx="2"></rect>
+              </svg>
+            </div>
+            <h3>What I build</h3>
+            <p>
+              Scalable backend services, reusable workflow engines, REST APIs,
+              authentication and authorization services, asynchronous processing,
+              database integrations, payment workflows and cloud-based application
+              delivery systems.
+            </p>
+
+            <div class="focus-list">
+              <div class="focus-item"><span class="check">✓</span> Scalable backend architecture</div>
+              <div class="focus-item"><span class="check">✓</span> Production deployments & troubleshooting</div>
+              <div class="focus-item"><span class="check">✓</span> CI/CD and deployment automation</div>
+              <div class="focus-item"><span class="check">✓</span> AI-assisted operational workflows</div>
+            </div>
+          </div>
+
+          <div class="about-card">
+            <div class="icon-box">
+              <svg class="icon" viewBox="0 0 24 24">
+                <path
+                  d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83">
+                </path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+            </div>
+            <h3>Engineering focus</h3>
+            <p>
+              Performance, reliability, secure APIs, repeatable software delivery,
+              clean architecture and reducing repetitive engineering work through
+              automation and intelligent tooling.
+            </p>
+          </div>
         </div>
+      </section>
 
-        <div class="profile-info">
+      <!-- ================= SKILLS ================= -->
 
-          <div class="info">
-            <span>Experience</span>
-            <strong>4+ Years</strong>
+      <section id="skills">
+        <div class="section-label">Technical Skills</div>
+
+        <h2 class="section-title">Tools I build with.</h2>
+
+        <p class="section-description">
+          A production-focused technology stack spanning backend engineering,
+          cloud infrastructure, DevOps and AI automation.
+        </p>
+
+        <div class="skills">
+
+          <div class="skill-card">
+            <div class="icon-box">
+              <svg class="icon" viewBox="0 0 24 24">
+                <path d="M12 3v18M3 12h18"></path>
+                <circle cx="12" cy="12" r="8"></circle>
+              </svg>
+            </div>
+            <h3>Backend Engineering</h3>
+            <p>Designing scalable APIs, microservices and reusable backend components.</p>
+            <div class="tags">
+              <span class="tag">Node.js</span>
+              <span class="tag">Express.js</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">TypeScript</span>
+              <span class="tag">REST APIs</span>
+              <span class="tag">Microservices</span>
+              <span class="tag">Backend Architecture</span>
+            </div>
           </div>
 
-          <div class="info">
-            <span>Primary Stack</span>
-            <strong>Node.js</strong>
+          <div class="skill-card">
+            <div class="icon-box">
+              <svg class="icon" viewBox="0 0 24 24">
+                <ellipse cx="12" cy="5" rx="7" ry="3"></ellipse>
+                <path d="M5 5v7c0 1.7 3.1 3 7 3s7-1.3 7-3V5"></path>
+                <path d="M5 12v7c0 1.7 3.1 3 7 3s7-1.3 7-3v-7"></path>
+              </svg>
+            </div>
+            <h3>Databases & Messaging</h3>
+            <p>Optimizing data access, caching, asynchronous processing and messaging.</p>
+            <div class="tags">
+              <span class="tag">MongoDB</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">Redis</span>
+              <span class="tag">Kafka</span>
+              <span class="tag">AWS SQS</span>
+              <span class="tag">Query Optimization</span>
+              <span class="tag">Caching</span>
+              <span class="tag">Async Processing</span>
+            </div>
           </div>
 
-          <div class="info">
-            <span>Specialization</span>
-            <strong>Backend</strong>
+          <div class="skill-card">
+            <div class="icon-box">
+              <svg class="icon" viewBox="0 0 24 24">
+                <path d="M7 18h10a4 4 0 0 0 .5-8A6 6 0 0 0 6 9a4.5 4.5 0 0 0 1 9Z"></path>
+              </svg>
+            </div>
+            <h3>Cloud & AWS</h3>
+            <p>Deploying and operating applications across cloud environments.</p>
+            <div class="tags">
+              <span class="tag">AWS</span>
+              <span class="tag">EC2</span>
+              <span class="tag">S3</span>
+              <span class="tag">Linux</span>
+              <span class="tag">Production Support</span>
+              <span class="tag">Environment Configuration</span>
+            </div>
           </div>
 
-          <div class="info">
-            <span>Cloud</span>
-            <strong>AWS</strong>
+          <div class="skill-card">
+            <div class="icon-box">
+              <svg class="icon" viewBox="0 0 24 24">
+                <path d="M8 8h8v8H8z"></path>
+                <path d="M4 10h4M4 14h4M16 10h4M16 14h4M10 4v4M14 4v4M10 16v4M14 16v4"></path>
+              </svg>
+            </div>
+            <h3>DevOps & CI/CD</h3>
+            <p>Automating build, validation, deployment and release workflows.</p>
+            <div class="tags">
+              <span class="tag">Docker</span>
+              <span class="tag">Git</span>
+              <span class="tag">CI/CD</span>
+              <span class="tag">Build Automation</span>
+              <span class="tag">Deployment Automation</span>
+              <span class="tag">Release Automation</span>
+              <span class="tag">Pipeline Monitoring</span>
+            </div>
           </div>
 
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <!-- ================= STATS ================= -->
-
-    <div class="stats">
-
-      <div class="stat">
-        <div class="number">4+</div>
-        <div class="label">Years Experience</div>
-      </div>
-
-      <div class="stat">
-        <div class="number">100K+</div>
-        <div class="label">Daily API Requests</div>
-      </div>
-
-      <div class="stat">
-        <div class="number">65%</div>
-        <div class="label">API Performance Gain</div>
-      </div>
-
-      <div class="stat">
-        <div class="number">85%</div>
-        <div class="label">Test Coverage</div>
-      </div>
-
-    </div>
-
-
-    <!-- ================= ABOUT ================= -->
-
-    <section id="about">
-
-      <div class="section-label">
-        About Me
-      </div>
-
-      <h2 class="section-title">
-        Backend engineering with
-        <span class="gradient">real-world impact.</span>
-      </h2>
-
-      <p class="section-description">
-        I specialize in designing and developing production
-        backend systems using Node.js and TypeScript. My work
-        spans scalable REST APIs, microservices, authentication,
-        caching, asynchronous processing and cloud infrastructure.
-      </p>
-
-    </section>
-
-
-    <!-- ================= SKILLS ================= -->
-
-    <section id="skills">
-
-      <div class="section-label">
-        Technical Skills
-      </div>
-
-      <h2 class="section-title">
-        Tools I build with.
-      </h2>
-
-      <p class="section-description">
-        A backend-focused technology stack with practical
-        production experience.
-      </p>
-
-
-      <div class="skills">
-
-        <div class="skill-card">
-
-          <div class="skill-icon">
-            ⚙️
+          <div class="skill-card">
+            <div class="icon-box">
+              <svg class="icon" viewBox="0 0 24 24">
+                <rect x="5" y="10" width="14" height="10" rx="2"></rect>
+                <path d="M8 10V7a4 4 0 0 1 8 0v3"></path>
+                <circle cx="12" cy="15" r="1"></circle>
+              </svg>
+            </div>
+            <h3>Security & Architecture</h3>
+            <p>Building secure services with clear authorization boundaries.</p>
+            <div class="tags">
+              <span class="tag">JWT</span>
+              <span class="tag">Authentication</span>
+              <span class="tag">Authorization</span>
+              <span class="tag">RBAC</span>
+              <span class="tag">Clean Architecture</span>
+              <span class="tag">High Availability</span>
+            </div>
           </div>
 
-          <h3>
-            Backend
-          </h3>
-
-          <p>
-            Building scalable APIs and distributed backend
-            services.
-          </p>
-
-          <div class="tags">
-            <span class="tag">Node.js</span>
-            <span class="tag">TypeScript</span>
-            <span class="tag">Express</span>
-            <span class="tag">REST APIs</span>
-            <span class="tag">Microservices</span>
+          <div class="skill-card">
+            <div class="icon-box">
+              <svg class="icon" viewBox="0 0 24 24">
+                <path d="M12 3a6 6 0 0 0-6 6v3a6 6 0 0 0 12 0V9a6 6 0 0 0-6-6Z"></path>
+                <path d="M9 12h6M10 16h4"></path>
+                <path d="M9 21h6"></path>
+              </svg>
+            </div>
+            <h3>AI & Agentic Automation</h3>
+            <p>Applying AI and tool-based agents to repetitive DevOps operations.</p>
+            <div class="tags">
+              <span class="tag">Agentic AI</span>
+              <span class="tag">AI Integration</span>
+              <span class="tag">LLM Workflows</span>
+              <span class="tag">AI-assisted DevOps</span>
+              <span class="tag">Tool-based AI Agents</span>
+              <span class="tag">Strands</span>
+              <span class="tag">Workflow Automation</span>
+            </div>
           </div>
 
-        </div>
-
-
-        <div class="skill-card">
-
-          <div class="skill-icon">
-            🗄️
+          <div class="skill-card">
+            <div class="icon-box">
+              <svg class="icon" viewBox="0 0 24 24">
+                <path d="M4 5h16v14H4z"></path>
+                <path d="m8 9 3 3-3 3M13 15h3"></path>
+              </svg>
+            </div>
+            <h3>Frontend</h3>
+            <p>Full-stack experience for product features and application workflows.</p>
+            <div class="tags">
+              <span class="tag">Next.js</span>
+              <span class="tag">React.js</span>
+              <span class="tag">HTML5</span>
+              <span class="tag">CSS</span>
+              <span class="tag">TypeScript</span>
+            </div>
           </div>
 
-          <h3>
-            Databases
-          </h3>
-
-          <p>
-            Designing efficient data access patterns and
-            optimizing database performance.
-          </p>
-
-          <div class="tags">
-            <span class="tag">MongoDB</span>
-            <span class="tag">PostgreSQL</span>
-            <span class="tag">Redis</span>
-            <span class="tag">Aggregation</span>
+          <div class="skill-card">
+            <div class="icon-box">
+              <svg class="icon" viewBox="0 0 24 24">
+                <path d="M5 12h4l2 2 4-6 2 2h2"></path>
+                <path d="M4 5h16v14H4z"></path>
+              </svg>
+            </div>
+            <h3>Testing & Reliability</h3>
+            <p>Testing backend services and supporting reliable production delivery.</p>
+            <div class="tags">
+              <span class="tag">API Testing</span>
+              <span class="tag">Unit Testing</span>
+              <span class="tag">Debugging</span>
+              <span class="tag">Logs</span>
+              <span class="tag">Production Troubleshooting</span>
+            </div>
           </div>
 
-        </div>
-
-
-        <div class="skill-card">
-
-          <div class="skill-icon">
-            ☁️
-          </div>
-
-          <h3>
-            Cloud & DevOps
-          </h3>
-
-          <p>
-            Deploying and operating production applications
-            on cloud infrastructure.
-          </p>
-
-          <div class="tags">
-            <span class="tag">AWS</span>
-            <span class="tag">Docker</span>
-            <span class="tag">S3</span>
-            <span class="tag">Linux</span>
-          </div>
-
-        </div>
-
-
-        <div class="skill-card">
-
-          <div class="skill-icon">
-            🔐
-          </div>
-
-          <h3>
-            Security
-          </h3>
-
-          <p>
-            Implementing secure authentication and
-            authorization systems.
-          </p>
-
-          <div class="tags">
-            <span class="tag">JWT</span>
-            <span class="tag">RBAC</span>
-            <span class="tag">Authentication</span>
-            <span class="tag">Authorization</span>
-          </div>
-
-        </div>
-
-
-        <div class="skill-card">
-
-          <div class="skill-icon">
-            📨
-          </div>
-
-          <h3>
-            Distributed Systems
-          </h3>
-
-          <p>
-            Designing asynchronous and event-driven
-            processing workflows.
-          </p>
-
-          <div class="tags">
-            <span class="tag">Kafka</span>
-            <span class="tag">Redis</span>
-            <span class="tag">Async Processing</span>
-            <span class="tag">Queues</span>
-          </div>
-
-        </div>
-
-
-        <div class="skill-card">
-
-          <div class="skill-icon">
-            🧪
-          </div>
-
-          <h3>
-            Testing
-          </h3>
-
-          <p>
-            Writing reliable automated tests for production
-            backend systems.
-          </p>
-
-          <div class="tags">
-            <span class="tag">Jest</span>
-            <span class="tag">Unit Testing</span>
-            <span class="tag">API Testing</span>
+          <div class="skill-card">
+            <div class="icon-box">
+              <svg class="icon" viewBox="0 0 24 24">
+                <path d="M12 3v18M3 12h18"></path>
+                <path d="M5 5h14v14H5z"></path>
+              </svg>
+            </div>
+            <h3>API Integrations</h3>
+            <p>Connecting enterprise systems and third-party services into secure workflows.</p>
+            <div class="tags">
+              <span class="tag">ABDM</span>
+              <span class="tag">ABHA</span>
+              <span class="tag">Third-party APIs</span>
+              <span class="tag">Payment APIs</span>
+              <span class="tag">API Development</span>
+            </div>
           </div>
 
         </div>
+      </section>
 
-      </div>
+      <!-- ================= EXPERIENCE ================= -->
 
-    </section>
+      <section id="experience">
+        <div class="section-label">Experience</div>
 
+        <h2 class="section-title">Where I've worked.</h2>
 
-    <!-- ================= EXPERIENCE ================= -->
+        <div class="timeline">
 
-    <section id="experience">
+          <div class="experience">
+            <div class="experience-header">
+              <div>
+                <h3>Software Engineer</h3>
+                <div class="company">Dhwani Rural Information Systems</div>
+              </div>
+              <div class="date">Feb 2022 — Jun 2026</div>
+            </div>
 
-      <div class="section-label">
-        Experience
-      </div>
+            <p>
+              Full-stack and backend engineering for enterprise products and
+              government / CSR initiatives, with increasing focus on automation
+              and AI-assisted DevOps workflows.
+            </p>
 
-      <h2 class="section-title">
-        Where I've worked.
-      </h2>
+            <ul>
+              <li>Engineered backend and full-stack services for mForm, mGrant and shared platform services.</li>
+              <li>Developed Payflow features using Next.js, React, TypeScript, Node.js and MongoDB, covering payment
+                workflows, approvals, transaction processing and RBAC.</li>
+              <li>Architected Node.js microservices and REST APIs supporting applications handling 50K+ daily API
+                requests.</li>
+              <li>Led backend development of mGrant modules, reusable workflow engines, service components and APIs.
+              </li>
+              <li>Optimized MongoDB indexes and aggregation pipelines, reducing API response time from 850ms to 300ms —
+                a 65% improvement.</li>
+              <li>Implemented Redis caching and asynchronous processing for higher-throughput workloads.</li>
+              <li>Designed JWT authentication, authorization, validation and business-rule services.</li>
+              <li>Integrated ABDM Gateway APIs for ABHA creation, consent management and health-record linking for
+                healthcare workflows used by 10K+ mobile users.</li>
+              <li>Automated CI/CD and application deployment workflows for mGrant and mForm product pipelines.</li>
+              <li>Worked on Docker-based application delivery and AWS infrastructure workflows.</li>
+              <li>Supported production deployments by analyzing logs, deployment failures, environment configuration and
+                pipeline issues.</li>
+              <li>Explored AI-assisted and agentic DevOps workflows for pipeline analysis, failure investigation,
+                deployment checks and operational recommendations.</li>
+            </ul>
+          </div>
 
+          <div class="experience">
+            <div class="experience-header">
+              <div>
+                <h3>Software Engineer Intern</h3>
+                <div class="company">IMG Global Infotech Private Limited</div>
+              </div>
+              <div class="date">Oct 2021 — Dec 2021</div>
+            </div>
 
-      <div class="timeline">
+            <p>
+              Worked on Node.js REST APIs for a construction-site attendance
+              management system.
+            </p>
 
-        <div class="experience">
+            <ul>
+              <li>Developed and maintained Node.js REST APIs for workforce tracking and attendance workflows.</li>
+              <li>Assisted with database schema design, backend modules, API integration, debugging and testing.</li>
+              <li>Collaborated with senior engineers in an Agile development environment.</li>
+            </ul>
+          </div>
 
-          <div class="experience-header">
+        </div>
+      </section>
 
-            <div>
-              <h3>
-                Backend Software Engineer
-              </h3>
+      <!-- ================= PROJECTS ================= -->
 
-              <div class="company">
-                Dhwani Rural Information Systems
+      <section id="projects">
+        <div class="section-label">Selected Projects</div>
+
+        <h2 class="section-title">Systems, products & automation.</h2>
+
+        <p class="section-description">
+          A mix of enterprise platforms, product engineering and AI / DevOps
+          automation projects.
+        </p>
+
+        <div class="projects">
+
+          <div class="project">
+            <div class="project-top">
+              <div class="project-number">01 / CSR PLATFORM</div>
+              <div class="project-icon">
+                <svg class="icon" viewBox="0 0 24 24">
+                  <path d="M4 6h16v12H4z"></path>
+                  <path d="M8 10h8M8 14h5"></path>
+                </svg>
               </div>
             </div>
+            <h3>mGrant</h3>
+            <p>
+              Enterprise CSR grant-management platform with reusable workflow
+              engines, backend services and APIs. Improved performance using
+              Redis caching, MongoDB optimization, bulk processing and validation.
+            </p>
+            <div class="tags">
+              <span class="tag">Node.js</span>
+              <span class="tag">MongoDB</span>
+              <span class="tag">Redis</span>
+              <span class="tag">REST APIs</span>
+              <span class="tag">CI/CD</span>
+            </div>
+          </div>
 
-            <div class="date">
-              Feb 2022 — Present
+          <div class="project">
+            <div class="project-top">
+              <div class="project-number">02 / PAYMENTS</div>
+              <div class="project-icon">
+                <svg class="icon" viewBox="0 0 24 24">
+                  <rect x="3" y="6" width="18" height="13" rx="2"></rect>
+                  <path d="M3 10h18M7 15h4"></path>
+                </svg>
+              </div>
+            </div>
+            <h3>PayFlow</h3>
+            <p>
+              Built end-to-end payment workflow features covering transaction
+              processing, approval lifecycles and role-based access control,
+              integrating frontend and backend services.
+            </p>
+            <div class="tags">
+              <span class="tag">Next.js</span>
+              <span class="tag">React</span>
+              <span class="tag">TypeScript</span>
+              <span class="tag">Node.js</span>
+              <span class="tag">MongoDB</span>
+              <span class="tag">RBAC</span>
+            </div>
+          </div>
+
+          <div class="project">
+            <div class="project-top">
+              <div class="project-number">03 / HEALTHCARE</div>
+              <div class="project-icon">
+                <svg class="icon" viewBox="0 0 24 24">
+                  <path d="M12 21s8-4.5 8-11V5l-8-3-8 3v5c0 6.5 8 11 8 11Z"></path>
+                  <path d="M12 8v6M9 11h6"></path>
+                </svg>
+              </div>
+            </div>
+            <h3>ABHA Integration</h3>
+            <p>
+              Integrated ABDM Gateway APIs for ABHA creation, consent management
+              and health-record linking, supporting secure healthcare workflows
+              used by 10K+ mobile users.
+            </p>
+            <div class="tags">
+              <span class="tag">Node.js</span>
+              <span class="tag">ABDM</span>
+              <span class="tag">ABHA</span>
+              <span class="tag">REST APIs</span>
+              <span class="tag">JWT</span>
+            </div>
+          </div>
+
+          <div class="project">
+            <div class="project-top">
+              <div class="project-number">04 / AI PLATFORM</div>
+              <div class="project-icon">
+                <svg class="icon" viewBox="0 0 24 24">
+                  <rect x="5" y="5" width="14" height="14" rx="3"></rect>
+                  <path d="M9 9h6v6H9zM9 3v2M15 3v2M9 19v2M15 19v2M3 9h2M3 15h2M19 9h2M19 15h2"></path>
+                </svg>
+              </div>
+            </div>
+            <h3>SpeakUp</h3>
+            <p>
+              AI-powered complaint-management platform using Hugging Face models
+              for complaint classification and automated text analysis,
+              integrated into a backend application.
+            </p>
+            <div class="tags">
+              <span class="tag">Node.js</span>
+              <span class="tag">AI</span>
+              <span class="tag">Hugging Face</span>
+              <span class="tag">APIs</span>
+            </div>
+          </div>
+
+          <div class="project">
+            <div class="project-top">
+              <div class="project-number">05 / DEVOPS AI</div>
+              <div class="project-icon">
+                <svg class="icon" viewBox="0 0 24 24">
+                  <path d="M7 7h10v10H7z"></path>
+                  <path d="M10 3v4M14 3v4M10 17v4M14 17v4M3 10h4M3 14h4M17 10h4M17 14h4"></path>
+                </svg>
+              </div>
+            </div>
+            <h3>Docker AI Agent Automation</h3>
+            <p>
+              Automation concept combining containerized engineering workflows
+              with AI agents to inspect application and deployment context,
+              assist operational checks and reduce repetitive DevOps work.
+            </p>
+            <div class="tags">
+              <span class="tag">Docker</span>
+              <span class="tag">AI Agents</span>
+              <span class="tag">DevOps</span>
+              <span class="tag">LLM Workflows</span>
+              <span class="tag">Automation</span>
+            </div>
+          </div>
+
+          <div class="project">
+            <div class="project-top">
+              <div class="project-number">06 / AGENTIC DEVOPS</div>
+              <div class="project-icon">
+                <svg class="icon" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="3"></circle>
+                  <path
+                    d="M12 2v4M12 18v4M2 12h4M18 12h4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M19.1 4.9l-2.8 2.8M7.7 16.3l-2.8 2.8">
+                  </path>
+                </svg>
+              </div>
+            </div>
+            <h3>AI Agents Automation</h3>
+            <p>
+              Agentic DevOps workflows designed to use application and pipeline
+              context for CI/CD failure analysis, operational checks, deployment
+              assistance and corrective recommendations.
+            </p>
+            <div class="tags">
+              <span class="tag">Agentic AI</span>
+              <span class="tag">Strands</span>
+              <span class="tag">LLM</span>
+              <span class="tag">CI/CD</span>
+              <span class="tag">Tool-based Agents</span>
+            </div>
+          </div>
+
+          <div class="project">
+            <div class="project-top">
+              <div class="project-number">07 / BACKEND</div>
+              <div class="project-icon">
+                <svg class="icon" viewBox="0 0 24 24">
+                  <path d="M4 5h16v14H4z"></path>
+                  <path d="M8 9h8M8 13h5"></path>
+                </svg>
+              </div>
+            </div>
+            <h3>SharePlate</h3>
+            <p>
+              Production-ready backend built with Go and Gin, using PostgreSQL,
+              Redis and Docker with REST APIs, JWT authentication, Clean
+              Architecture, Repository Pattern, migrations and graceful shutdown.
+            </p>
+            <div class="tags">
+              <span class="tag">Go</span>
+              <span class="tag">Gin</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">Redis</span>
+              <span class="tag">Docker</span>
+              <span class="tag">JWT</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ================= AI / DEVOPS ================= -->
+
+      <section id="automation" class="automation-section">
+        <div class="section-label">AI + DevOps</div>
+
+        <h2 class="section-title">
+          Turning repetitive operations into
+          <span class="gradient">agentic workflows.</span>
+        </h2>
+
+        <p class="section-description">
+          My DevOps automation work focuses on reducing manual investigation and
+          operational effort by giving AI workflows access to relevant application,
+          pipeline and deployment context.
+        </p>
+
+        <div class="automation-grid">
+
+          <div class="automation-card">
+            <div class="icon-box">
+              <svg class="icon" viewBox="0 0 24 24">
+                <rect x="5" y="5" width="14" height="14" rx="3"></rect>
+                <path d="M9 9h6v6H9z"></path>
+                <path d="M9 3v2M15 3v2M9 19v2M15 19v2"></path>
+              </svg>
             </div>
 
+            <h3>AI-assisted DevOps</h3>
+            <p>
+              AI workflows can analyze CI/CD failures, application logs and
+              deployment context, surface likely issues and provide operational
+              recommendations to engineers.
+            </p>
+
+            <div class="workflow">
+              <span class="workflow-step">Pipeline</span>
+              <span class="arrow">→</span>
+              <span class="workflow-step">Context</span>
+              <span class="arrow">→</span>
+              <span class="workflow-step">Agent</span>
+              <span class="arrow">→</span>
+              <span class="workflow-step">Analysis</span>
+            </div>
           </div>
 
-          <p>
-            Engineering scalable backend systems for enterprise
-            products and government/CSR initiatives.
-          </p>
+          <div class="automation-card">
+            <div class="icon-box">
+              <svg class="icon" viewBox="0 0 24 24">
+                <path d="M6 4h12v16H6z"></path>
+                <path d="M9 8h6M9 12h6M9 16h3"></path>
+              </svg>
+            </div>
 
-          <ul>
+            <h3>Agentic automation with Strands</h3>
+            <p>
+              Exploring tool-based agent workflows with Strands to connect
+              reasoning with engineering tools and automate operational checks,
+              deployment assistance and repetitive DevOps tasks.
+            </p>
 
-            <li>
-              Architected Node.js backend services supporting
-              100K+ daily API requests.
-            </li>
-
-            <li>
-              Optimized MongoDB queries and indexing, reducing
-              API response time from 850ms to 300ms.
-            </li>
-
-            <li>
-              Implemented Redis caching with automatic
-              invalidation to reduce database load.
-            </li>
-
-            <li>
-              Built JWT authentication and role-based
-              authorization systems.
-            </li>
-
-            <li>
-              Developed asynchronous bulk-processing pipelines
-              handling thousands of records.
-            </li>
-
-            <li>
-              Integrated AWS S3 for scalable document storage.
-            </li>
-
-            <li>
-              Built Jest test suites achieving 85% code coverage.
-            </li>
-
-          </ul>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- ================= PROJECTS ================= -->
-
-    <section id="projects">
-
-      <div class="section-label">
-        Selected Projects
-      </div>
-
-      <h2 class="section-title">
-        Things I've built.
-      </h2>
-
-      <p class="section-description">
-        Production systems and engineering projects focused
-        on scalability, performance and real-world workflows.
-      </p>
-
-
-      <div class="projects">
-
-        <!-- PROJECT 1 -->
-
-        <div class="project">
-
-          <div class="project-number">
-            01 / CSR PLATFORM
+            <div class="workflow">
+              <span class="workflow-step">Strands</span>
+              <span class="arrow">→</span>
+              <span class="workflow-step">Tools</span>
+              <span class="arrow">→</span>
+              <span class="workflow-step">Observe</span>
+              <span class="arrow">→</span>
+              <span class="workflow-step">Act</span>
+            </div>
           </div>
 
-          <h3>
-            mGrant
-          </h3>
+          <div class="automation-card">
+            <div class="icon-box">
+              <svg class="icon" viewBox="0 0 24 24">
+                <path d="M8 8h8v8H8z"></path>
+                <path d="M4 10h4M4 14h4M16 10h4M16 14h4M10 4v4M14 4v4M10 16v4M14 16v4"></path>
+              </svg>
+            </div>
 
-          <p>
-            Built scalable CSR grant-management workflows
-            and reusable backend modules. Improved platform
-            performance through Redis caching, query optimization,
-            bulk processing and stronger data validation.
-          </p>
+            <h3>Docker-based delivery</h3>
+            <p>
+              Containerized application delivery helps standardize packaging and
+              improve consistency across development and production environments,
+              while creating a predictable execution layer for automation.
+            </p>
+          </div>
 
-          <div class="tags">
-            <span class="tag">Node.js</span>
-            <span class="tag">MongoDB</span>
-            <span class="tag">Redis</span>
-            <span class="tag">REST APIs</span>
+          <div class="automation-card">
+            <div class="icon-box">
+              <svg class="icon" viewBox="0 0 24 24">
+                <path d="M4 18h16M6 14l3-3 3 2 5-6"></path>
+                <circle cx="6" cy="14" r="1"></circle>
+                <circle cx="9" cy="11" r="1"></circle>
+                <circle cx="12" cy="13" r="1"></circle>
+                <circle cx="17" cy="7" r="1"></circle>
+              </svg>
+            </div>
+
+            <h3>Operational feedback loops</h3>
+            <p>
+              The goal is not simply generating text: agents use system context
+              and tools to identify deployment issues, analyze failures and assist
+              engineers with actionable next steps.
+            </p>
           </div>
 
         </div>
+      </section>
 
+      <!-- ================= RECOGNITION ================= -->
 
-        <!-- PROJECT 2 -->
+      <section>
+        <div class="section-label">Recognition</div>
 
-        <div class="project">
+        <h2 class="section-title">A few things I'm proud of.</h2>
 
-          <div class="project-number">
-            02 / HEALTHCARE
+        <div class="achievements">
+
+          <div class="achievement">
+            <div class="icon-box">
+              <svg class="icon" viewBox="0 0 24 24">
+                <path d="M8 21h8M12 17v4M7 4h10v6a5 5 0 0 1-10 0V4Z"></path>
+                <path d="M7 7H4v1a4 4 0 0 0 4 4M17 7h3v1a4 4 0 0 1-4 4"></path>
+              </svg>
+            </div>
+            <h3>Recognition Award</h3>
+            <p>
+              Recognized for architecting and executing an enterprise data
+              migration strategy that enabled platform transitions with minimal
+              downtime and reduced deployment risk.
+            </p>
           </div>
 
-          <h3>
-            ABHA Integration
-          </h3>
-
-          <p>
-            Integrated ABDM Gateway APIs for ABHA creation,
-            verification, consent management and health-record
-            linking. Backend APIs supported mobile applications
-            serving 50K+ users.
-          </p>
-
-          <div class="tags">
-            <span class="tag">Node.js</span>
-            <span class="tag">ABDM</span>
-            <span class="tag">REST APIs</span>
-            <span class="tag">JWT</span>
+          <div class="achievement">
+            <div class="icon-box">
+              <svg class="icon" viewBox="0 0 24 24">
+                <path d="m12 3 2.7 5.5 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1-4.4-4.3 6.1-.9L12 3Z"></path>
+              </svg>
+            </div>
+            <h3>First Prize — AI Manthan</h3>
+            <p>
+              First prize for an AI-powered complaint-management platform using
+              AI capabilities for complaint classification and text analysis.
+            </p>
           </div>
 
-        </div>
-
-
-        <!-- PROJECT 3 -->
-
-        <div class="project">
-
-          <div class="project-number">
-            03 / AI PLATFORM
-          </div>
-
-          <h3>
-            SpeakUp
-          </h3>
-
-          <p>
-            Developed an AI-powered complaint-management
-            platform with automated complaint categorization.
-            Integrated Hugging Face models and designed
-            end-to-end backend APIs.
-          </p>
-
-          <div class="tags">
-            <span class="tag">Node.js</span>
-            <span class="tag">AI</span>
-            <span class="tag">Hugging Face</span>
-            <span class="tag">APIs</span>
+          <div class="achievement">
+            <div class="icon-box">
+              <svg class="icon" viewBox="0 0 24 24">
+                <path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"></path>
+              </svg>
+            </div>
+            <h3>65% Performance Improvement</h3>
+            <p>
+              Reduced production API response time from 850ms to 300ms through
+              MongoDB index and aggregation optimization.
+            </p>
           </div>
 
         </div>
+      </section>
 
-      </div>
+      <!-- ================= EDUCATION ================= -->
 
-    </section>
+      <section>
+        <div class="section-label">Education</div>
 
+        <h2 class="section-title">Academic foundation.</h2>
 
-    <!-- ================= ACHIEVEMENTS ================= -->
-
-    <section>
-
-      <div class="section-label">
-        Recognition
-      </div>
-
-      <h2 class="section-title">
-        A few things I'm proud of.
-      </h2>
-
-
-      <div class="achievements">
-
-        <div class="achievement">
-
-          <div class="achievement-icon">
-            🏆
+        <div class="education-card">
+          <div>
+            <h3>B.Tech, Computer Science & Engineering</h3>
+            <p>Future Institute of Engineering & Technology · AKTU</p>
           </div>
-
-          <h3>
-            Recognition Award
-          </h3>
-
-          <p>
-            Recognized for an enterprise migration strategy
-            completed with minimal downtime.
-          </p>
-
+          <div class="education-year">2017 — 2021</div>
         </div>
+      </section>
 
+      <!-- ================= CONTACT ================= -->
 
-        <div class="achievement">
+      <div class="contact" id="contact">
+        <div class="section-label">Get In Touch</div>
 
-          <div class="achievement-icon">
-            🥇
-          </div>
+        <h2>
+          Let's build something
+          <span class="gradient">useful.</span>
+        </h2>
 
-          <h3>
-            First Prize — AI Manthan
-          </h3>
+        <p>
+          Interested in backend engineering, scalable systems, DevOps automation,
+          AI agents or challenging technical problems? Let's connect.
+        </p>
 
-          <p>
-            First prize for an AI-powered complaint-management
-            platform.
-          </p>
-
-        </div>
-
-
-        <div class="achievement">
-
-          <div class="achievement-icon">
-            ⚡
-          </div>
-
-          <h3>
-            65% Performance Improvement
-          </h3>
-
-          <p>
-            Reduced backend API response time from 850ms
-            to 300ms through database optimization and caching.
-          </p>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- ================= CONTACT ================= -->
-
-    <div class="contact" id="contact">
-
-      <div class="section-label">
-        Get In Touch
-      </div>
-
-      <h2>
-        Let's build something
-        <span class="gradient">great.</span>
-      </h2>
-
-      <p>
-        I'm always interested in discussing backend engineering,
-        scalable systems, interesting products and challenging
-        technical problems.
-      </p>
-
-      <a
-        href="mailto:ashraffahad498@gmail.com"
-        class="email"
-      >
-        ashraffahad498@gmail.com
-      </a>
-
-      <div class="socials">
-
-        <a
-          href="https://linkedin.com/in/backendbyfahad"
-          target="_blank"
-          class="social"
-        >
-          LinkedIn ↗
+        <a href="mailto:ashraffahad498@gmail.com" class="email">
+          ashraffahad498@gmail.com
         </a>
 
-        <a
-          href="https://github.com/fahad1998-hub"
-          target="_blank"
-          class="social"
-        >
-          GitHub ↗
-        </a>
+        <div class="socials">
+          <a href="https://linkedin.com/in/backendbyfahad" target="_blank" rel="noopener" class="social">
+            LinkedIn ↗
+          </a>
 
-        <a
-          href="tel:+918218002203"
-          class="social"
-        >
-          +91 82180 02203
-        </a>
+          <a href="https://github.com/fahad1998-hub" target="_blank" rel="noopener" class="social">
+            GitHub ↗
+          </a>
 
+          <a href="tel:+918218002203" class="social">
+            +91 82180 02203
+          </a>
+        </div>
       </div>
-
-    </div>
 
   </main>
-
 
   <!-- ================= FOOTER ================= -->
 
   <footer>
-
     <div class="footer">
-
-      <div>
-        © 2026 Fahad. Built with Node.js.
-      </div>
-
-      <div>
-        Backend Engineer · Node.js · TypeScript · AWS
-      </div>
-
+      <div>© 2026 Fahad. Built with Node.js.</div>
+      <div>Backend · DevOps · AI Automation · AWS</div>
     </div>
-
   </footer>
 
+  <script>
+    const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    mobileMenuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("open");
+    });
+
+    document.querySelectorAll(".mobile-menu a").forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.remove("open");
+      });
+    });
+  </script>
+
 </body>
+
 </html>
