@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Fahad — Software Engineer | Backend, DevOps & AI Automation</title>
-  <meta
-    name="description"
-    content="Fahad is a Software Engineer specializing in Node.js, TypeScript, AWS, DevOps, CI/CD, scalable backend systems and AI-assisted DevOps automation."
-  />
+  <meta name="description"
+    content="Fahad is a Software Engineer specializing in Node.js, TypeScript, AWS, DevOps, CI/CD, scalable backend systems and AI-assisted DevOps automation." />
 
   <style>
     * {
@@ -20,10 +19,10 @@
     :root {
       --bg: #07080d;
       --bg-soft: #0b0e15;
-      --card: rgba(255,255,255,.045);
-      --card-strong: rgba(255,255,255,.065);
-      --border: rgba(255,255,255,.10);
-      --border-hover: rgba(139,92,246,.42);
+      --card: rgba(255, 255, 255, .045);
+      --card-strong: rgba(255, 255, 255, .065);
+      --border: rgba(255, 255, 255, .10);
+      --border-hover: rgba(139, 92, 246, .42);
       --text: #f8fafc;
       --muted: #9299aa;
       --muted-light: #b8bfcd;
@@ -42,8 +41,8 @@
     body {
       font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background:
-        radial-gradient(circle at 15% 8%, rgba(139,92,246,.14), transparent 28%),
-        radial-gradient(circle at 88% 22%, rgba(56,189,248,.08), transparent 26%),
+        radial-gradient(circle at 15% 8%, rgba(139, 92, 246, .14), transparent 28%),
+        radial-gradient(circle at 88% 22%, rgba(56, 189, 248, .08), transparent 26%),
         var(--bg);
       color: var(--text);
       line-height: 1.6;
@@ -57,8 +56,8 @@
       pointer-events: none;
       opacity: .18;
       background-image:
-        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+        linear-gradient(rgba(255, 255, 255, .025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .025) 1px, transparent 1px);
       background-size: 48px 48px;
       mask-image: linear-gradient(to bottom, black, transparent 80%);
     }
@@ -98,8 +97,8 @@
       place-items: center;
       border-radius: 12px;
       color: var(--purple-light);
-      background: rgba(139,92,246,.09);
-      border: 1px solid rgba(139,92,246,.18);
+      background: rgba(139, 92, 246, .09);
+      border: 1px solid rgba(139, 92, 246, .18);
       margin-bottom: 18px;
     }
 
@@ -111,9 +110,9 @@
       left: 0;
       right: 0;
       z-index: 100;
-      background: rgba(7,8,13,.76);
+      background: rgba(7, 8, 13, .76);
       backdrop-filter: blur(18px);
-      border-bottom: 1px solid rgba(255,255,255,.06);
+      border-bottom: 1px solid rgba(255, 255, 255, .06);
     }
 
     .nav {
@@ -154,16 +153,16 @@
 
     .nav-contact {
       padding: 9px 15px;
-      border: 1px solid rgba(139,92,246,.4);
+      border: 1px solid rgba(139, 92, 246, .4);
       border-radius: 9px;
       color: white;
       font-size: 13px;
-      background: rgba(139,92,246,.1);
+      background: rgba(139, 92, 246, .1);
       transition: .2s;
     }
 
     .nav-contact:hover {
-      background: rgba(139,92,246,.18);
+      background: rgba(139, 92, 246, .18);
     }
 
     .mobile-menu-btn {
@@ -173,7 +172,7 @@
       border: 1px solid var(--border);
       border-radius: 10px;
       color: white;
-      background: rgba(255,255,255,.04);
+      background: rgba(255, 255, 255, .04);
       cursor: pointer;
       place-items: center;
     }
@@ -181,7 +180,7 @@
     .mobile-menu {
       display: none;
       padding: 0 25px 18px;
-      border-top: 1px solid rgba(255,255,255,.06);
+      border-top: 1px solid rgba(255, 255, 255, .06);
     }
 
     .mobile-menu.open {
@@ -193,7 +192,7 @@
       padding: 11px 8px;
       color: var(--muted-light);
       font-size: 14px;
-      border-bottom: 1px solid rgba(255,255,255,.04);
+      border-bottom: 1px solid rgba(255, 255, 255, .04);
     }
 
     /* ================= HERO ================= */
@@ -214,8 +213,8 @@
       align-items: center;
       gap: 8px;
       padding: 7px 13px;
-      border: 1px solid rgba(52,211,153,.25);
-      background: rgba(52,211,153,.06);
+      border: 1px solid rgba(52, 211, 153, .25);
+      background: rgba(52, 211, 153, .06);
       border-radius: 50px;
       color: #7eeac0;
       font-size: 12px;
@@ -278,7 +277,7 @@
 
     .primary {
       background: linear-gradient(135deg, var(--purple), #6366f1);
-      box-shadow: 0 15px 40px rgba(139,92,246,.22);
+      box-shadow: 0 15px 40px rgba(139, 92, 246, .22);
     }
 
     .primary:hover {
@@ -287,11 +286,11 @@
 
     .secondary {
       border: 1px solid var(--border);
-      background: rgba(255,255,255,.04);
+      background: rgba(255, 255, 255, .04);
     }
 
     .secondary:hover {
-      background: rgba(255,255,255,.08);
+      background: rgba(255, 255, 255, .08);
       transform: translateY(-2px);
     }
 
@@ -304,7 +303,7 @@
       border-radius: 24px;
       background: var(--card);
       backdrop-filter: blur(20px);
-      box-shadow: 0 30px 100px rgba(0,0,0,.35);
+      box-shadow: 0 30px 100px rgba(0, 0, 0, .35);
       text-align: center;
     }
 
@@ -316,9 +315,9 @@
       border-radius: 50%;
       object-fit: cover;
       object-position: center;
-      background: linear-gradient(135deg, rgba(139,92,246,.35), rgba(56,189,248,.25));
-      border: 2px solid rgba(255,255,255,.14);
-      box-shadow: 0 0 70px rgba(139,92,246,.2);
+      background: linear-gradient(135deg, rgba(139, 92, 246, .35), rgba(56, 189, 248, .25));
+      border: 2px solid rgba(255, 255, 255, .14);
+      box-shadow: 0 0 70px rgba(139, 92, 246, .2);
     }
 
     .profile-circle-fallback {
@@ -352,7 +351,7 @@
       gap: 12px;
       padding: 11px 12px;
       border-radius: 9px;
-      background: rgba(255,255,255,.035);
+      background: rgba(255, 255, 255, .035);
       font-size: 12px;
     }
 
@@ -376,10 +375,10 @@
       margin: -5px auto 80px;
       padding: 28px;
       display: grid;
-      grid-template-columns: repeat(4,1fr);
+      grid-template-columns: repeat(4, 1fr);
       border: 1px solid var(--border);
       border-radius: 18px;
-      background: rgba(255,255,255,.035);
+      background: rgba(255, 255, 255, .035);
     }
 
     .stat {
@@ -526,17 +525,17 @@
     .tag {
       padding: 5px 8px;
       border-radius: 6px;
-      background: rgba(255,255,255,.055);
+      background: rgba(255, 255, 255, .055);
       color: #b9bfcd;
       font-size: 10px;
-      border: 1px solid rgba(255,255,255,.04);
+      border: 1px solid rgba(255, 255, 255, .04);
     }
 
     /* ================= EXPERIENCE ================= */
 
     .timeline {
       margin-top: 55px;
-      border-left: 1px solid rgba(139,92,246,.35);
+      border-left: 1px solid rgba(139, 92, 246, .35);
       padding-left: 40px;
     }
 
@@ -604,7 +603,7 @@
     .projects {
       margin-top: 42px;
       display: grid;
-      grid-template-columns: repeat(3,1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 17px;
     }
 
@@ -612,7 +611,7 @@
       padding: 25px;
       border: 1px solid var(--border);
       border-radius: 18px;
-      background: linear-gradient(145deg, rgba(139,92,246,.08), rgba(255,255,255,.03));
+      background: linear-gradient(145deg, rgba(139, 92, 246, .08), rgba(255, 255, 255, .03));
       transition: .25s;
     }
 
@@ -630,8 +629,8 @@
       place-items: center;
       border-radius: 11px;
       color: var(--purple-light);
-      background: rgba(139,92,246,.09);
-      border: 1px solid rgba(139,92,246,.17);
+      background: rgba(139, 92, 246, .09);
+      border: 1px solid rgba(139, 92, 246, .17);
     }
 
     .project-number {
@@ -696,7 +695,7 @@
       border: 1px solid var(--border);
       border-radius: 8px;
       color: #cbd2df;
-      background: rgba(255,255,255,.035);
+      background: rgba(255, 255, 255, .035);
       font-size: 10px;
     }
 
@@ -765,11 +764,11 @@
       margin: 90px auto;
       padding: 75px 45px;
       text-align: center;
-      border: 1px solid rgba(139,92,246,.25);
+      border: 1px solid rgba(139, 92, 246, .25);
       border-radius: 25px;
       background:
-        radial-gradient(circle at center, rgba(139,92,246,.15), transparent 65%),
-        rgba(255,255,255,.025);
+        radial-gradient(circle at center, rgba(139, 92, 246, .15), transparent 65%),
+        rgba(255, 255, 255, .025);
     }
 
     .contact h2 {
@@ -814,7 +813,7 @@
 
     .social:hover {
       color: white;
-      border-color: rgba(139,92,246,.4);
+      border-color: rgba(139, 92, 246, .4);
     }
 
     /* ================= FOOTER ================= */
@@ -853,9 +852,9 @@
     .impact-highlights {
       margin-top: 58px;
       padding: 30px;
-      border: 1px solid rgba(255,255,255,.08);
+      border: 1px solid rgba(255, 255, 255, .08);
       border-radius: 24px;
-      background: rgba(255,255,255,.02);
+      background: rgba(255, 255, 255, .02);
     }
 
     .impact-highlights-head {
@@ -888,8 +887,8 @@
     .impact-mini {
       padding: 21px;
       border-radius: 16px;
-      border: 1px solid rgba(255,255,255,.07);
-      background: rgba(255,255,255,.025);
+      border: 1px solid rgba(255, 255, 255, .07);
+      background: rgba(255, 255, 255, .025);
     }
 
     .impact-mini .impact-number {
@@ -1018,7 +1017,7 @@
 
       .skills,
       .projects {
-        grid-template-columns: repeat(2,1fr);
+        grid-template-columns: repeat(2, 1fr);
       }
 
       .about-grid,
@@ -1028,6 +1027,7 @@
     }
 
     @media (max-width: 760px) {
+
       .container,
       section {
         width: 100%;
@@ -1070,7 +1070,7 @@
       .stats {
         width: calc(100% - 30px);
         margin: 0 auto 35px;
-        grid-template-columns: repeat(2,1fr);
+        grid-template-columns: repeat(2, 1fr);
         gap: 20px 0;
         padding: 20px 10px;
       }
@@ -1209,263 +1209,286 @@
         width: calc(100% - 20px);
       }
     }
-  
-/* Flashy hero profile treatment — scoped only to the profile card */
-.hero-profile-card{
-  position:relative;
-  overflow:hidden;
-  padding:38px !important;
-  background:
-    radial-gradient(circle at 15% 0%, rgba(103,255,193,.13), transparent 32%),
-    radial-gradient(circle at 100% 100%, rgba(78,150,255,.10), transparent 35%),
-    linear-gradient(145deg, rgba(255,255,255,.075), rgba(255,255,255,.025)) !important;
-  border:1px solid rgba(103,255,193,.30) !important;
-  box-shadow:0 25px 70px rgba(0,0,0,.32), 0 0 35px rgba(103,255,193,.07) !important;
-}
 
-.hero-profile-card::before{
-  content:"";
-  position:absolute;
-  top:0;
-  left:-80%;
-  width:55%;
-  height:100%;
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent);
-  transform:skewX(-18deg);
-  animation:profileShine 5s ease-in-out infinite;
-  pointer-events:none;
-}
+    /* Flashy hero profile treatment — scoped only to the profile card */
+    .hero-profile-card {
+      position: relative;
+      overflow: hidden;
+      padding: 38px !important;
+      background:
+        radial-gradient(circle at 15% 0%, rgba(103, 255, 193, .13), transparent 32%),
+        radial-gradient(circle at 100% 100%, rgba(78, 150, 255, .10), transparent 35%),
+        linear-gradient(145deg, rgba(255, 255, 255, .075), rgba(255, 255, 255, .025)) !important;
+      border: 1px solid rgba(103, 255, 193, .30) !important;
+      box-shadow: 0 25px 70px rgba(0, 0, 0, .32), 0 0 35px rgba(103, 255, 193, .07) !important;
+    }
 
-@keyframes profileShine{
-  0%,55%{left:-80%}
-  100%{left:145%}
-}
+    .hero-profile-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -80%;
+      width: 55%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .08), transparent);
+      transform: skewX(-18deg);
+      animation: profileShine 5s ease-in-out infinite;
+      pointer-events: none;
+    }
 
-.hero-profile-card .profile-circle-wrap{
-  position:relative;
-  width:152px;
-  height:152px;
-  margin-bottom:25px;
-  border-radius:50%;
-  padding:5px;
-  background:linear-gradient(135deg,#6fffc1,#49a8ff,#6fffc1);
-  box-shadow:
-    0 0 0 7px rgba(103,255,193,.06),
-    0 0 35px rgba(103,255,193,.24),
-    0 18px 45px rgba(0,0,0,.35);
-  animation:profileGlow 3s ease-in-out infinite alternate;
-}
+    @keyframes profileShine {
 
-@keyframes profileGlow{
-  from{box-shadow:0 0 0 7px rgba(103,255,193,.05),0 0 25px rgba(103,255,193,.18),0 18px 45px rgba(0,0,0,.35)}
-  to{box-shadow:0 0 0 9px rgba(103,255,193,.08),0 0 45px rgba(103,255,193,.34),0 18px 45px rgba(0,0,0,.35)}
-}
+      0%,
+      55% {
+        left: -80%
+      }
 
-.hero-profile-card .profile-circle{
-  width:100%;
-  height:100%;
-  border-radius:50%;
-  object-fit:cover;
-  transform:scale(1.22);
-  display:block;
-}
+      100% {
+        left: 145%
+      }
+    }
 
-.hero-profile-card .profile-kicker{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  margin-bottom:12px;
-  padding:7px 12px;
-  border-radius:999px;
-  color:#8fffc9;
-  background:rgba(103,255,193,.08);
-  border:1px solid rgba(103,255,193,.22);
-  font-size:.72rem;
-  font-weight:800;
-  letter-spacing:.13em;
-  text-transform:uppercase;
-  box-shadow:0 0 18px rgba(103,255,193,.08);
-}
+    .hero-profile-card .profile-circle-wrap {
+      position: relative;
+      width: 152px;
+      height: 152px;
+      margin-bottom: 25px;
+      border-radius: 50%;
+      padding: 5px;
+      background: linear-gradient(135deg, #6fffc1, #49a8ff, #6fffc1);
+      box-shadow:
+        0 0 0 7px rgba(103, 255, 193, .06),
+        0 0 35px rgba(103, 255, 193, .24),
+        0 18px 45px rgba(0, 0, 0, .35);
+      animation: profileGlow 3s ease-in-out infinite alternate;
+    }
 
-.hero-profile-card .profile-kicker::before{
-  content:"";
-  width:7px;
-  height:7px;
-  border-radius:50%;
-  background:#6fffc1;
-  box-shadow:0 0 12px #6fffc1;
-}
+    @keyframes profileGlow {
+      from {
+        box-shadow: 0 0 0 7px rgba(103, 255, 193, .05), 0 0 25px rgba(103, 255, 193, .18), 0 18px 45px rgba(0, 0, 0, .35)
+      }
 
-.hero-profile-card h2{
-  font-size:2.25rem !important;
-  line-height:1.05 !important;
-  margin-bottom:7px !important;
-  letter-spacing:-.045em;
-  background:linear-gradient(90deg,#fff,#9dffd2,#b6d7ff);
-  -webkit-background-clip:text;
-  background-clip:text;
-  -webkit-text-fill-color:transparent;
-  filter:drop-shadow(0 0 16px rgba(103,255,193,.10));
-}
+      to {
+        box-shadow: 0 0 0 9px rgba(103, 255, 193, .08), 0 0 45px rgba(103, 255, 193, .34), 0 18px 45px rgba(0, 0, 0, .35)
+      }
+    }
 
-.hero-profile-card .profile-role{
-  font-size:1.02rem;
-  font-weight:600;
-  color:rgba(255,255,255,.72);
-  margin-bottom:19px;
-}
+    .hero-profile-card .profile-circle {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      transform: scale(1.22);
+      display: block;
+    }
 
-.hero-profile-card .profile-focus{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:10px;
-  margin-top:21px;
-}
+    .hero-profile-card .profile-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      color: #8fffc9;
+      background: rgba(103, 255, 193, .08);
+      border: 1px solid rgba(103, 255, 193, .22);
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+      box-shadow: 0 0 18px rgba(103, 255, 193, .08);
+    }
 
-.hero-profile-card .profile-focus > *{
-  padding:12px 9px;
-  border-radius:12px;
-  border:1px solid rgba(103,255,193,.13);
-  background:rgba(103,255,193,.045);
-  color:rgba(255,255,255,.78);
-  font-size:.76rem;
-  font-weight:600;
-  text-align:center;
-}
+    .hero-profile-card .profile-kicker::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #6fffc1;
+      box-shadow: 0 0 12px #6fffc1;
+    }
 
-.hero-profile-card .profile-tech{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  margin-top:18px;
-}
+    .hero-profile-card h2 {
+      font-size: 2.25rem !important;
+      line-height: 1.05 !important;
+      margin-bottom: 7px !important;
+      letter-spacing: -.045em;
+      background: linear-gradient(90deg, #fff, #9dffd2, #b6d7ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 16px rgba(103, 255, 193, .10));
+    }
 
-.hero-profile-card .profile-tech > *{
-  padding:6px 10px;
-  border-radius:8px;
-  border:1px solid rgba(255,255,255,.10);
-  background:rgba(255,255,255,.045);
-  color:rgba(255,255,255,.72);
-  font-size:.72rem;
-}
+    .hero-profile-card .profile-role {
+      font-size: 1.02rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, .72);
+      margin-bottom: 19px;
+    }
 
-.hero-profile-card:hover{
-  transform:translateY(-5px);
-  border-color:rgba(103,255,193,.48) !important;
-  box-shadow:0 32px 85px rgba(0,0,0,.36),0 0 48px rgba(103,255,193,.10) !important;
-}
+    .hero-profile-card .profile-focus {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 21px;
+    }
 
-@media(max-width:760px){
-  .hero-profile-card{padding:28px !important}
-  .hero-profile-card .profile-circle-wrap{width:132px;height:132px}
-  .hero-profile-card h2{font-size:1.9rem !important}
-  .hero-profile-card .profile-focus{grid-template-columns:1fr}
-}
+    .hero-profile-card .profile-focus>* {
+      padding: 12px 9px;
+      border-radius: 12px;
+      border: 1px solid rgba(103, 255, 193, .13);
+      background: rgba(103, 255, 193, .045);
+      color: rgba(255, 255, 255, .78);
+      font-size: .76rem;
+      font-weight: 600;
+      text-align: center;
+    }
 
+    .hero-profile-card .profile-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
 
-/* Fix profile image stretching/cropping — keep the portrait natural and contained */
-.hero-profile-card .profile-circle-wrap{
-  width:152px !important;
-  height:152px !important;
-  aspect-ratio:1 / 1;
-  overflow:hidden;
-  flex:0 0 152px;
-}
+    .hero-profile-card .profile-tech>* {
+      padding: 6px 10px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, .10);
+      background: rgba(255, 255, 255, .045);
+      color: rgba(255, 255, 255, .72);
+      font-size: .72rem;
+    }
 
-.hero-profile-card .profile-circle{
-  width:100% !important;
-  height:100% !important;
-  max-width:none !important;
-  max-height:none !important;
-  aspect-ratio:1 / 1;
-  object-fit:cover !important;
-  object-position:center top;
-  transform:none !important;
-  display:block;
-}
+    .hero-profile-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(103, 255, 193, .48) !important;
+      box-shadow: 0 32px 85px rgba(0, 0, 0, .36), 0 0 48px rgba(103, 255, 193, .10) !important;
+    }
 
-@media(max-width:760px){
-  .hero-profile-card .profile-circle-wrap{
-    width:132px !important;
-    height:132px !important;
-    flex-basis:132px;
-  }
-}
+    @media(max-width:760px) {
+      .hero-profile-card {
+        padding: 28px !important
+      }
+
+      .hero-profile-card .profile-circle-wrap {
+        width: 132px;
+        height: 132px
+      }
+
+      .hero-profile-card h2 {
+        font-size: 1.9rem !important
+      }
+
+      .hero-profile-card .profile-focus {
+        grid-template-columns: 1fr
+      }
+    }
 
 
-/* Compact the hero profile card without changing its visual treatment */
-.hero-profile-card{
-  padding:26px !important;
-}
+    /* Fix profile image stretching/cropping — keep the portrait natural and contained */
+    .hero-profile-card .profile-circle-wrap {
+      width: 152px !important;
+      height: 152px !important;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      flex: 0 0 152px;
+    }
 
-.hero-profile-card .profile-circle-wrap{
-  width:118px !important;
-  height:118px !important;
-  flex-basis:118px;
-  margin-bottom:18px;
-}
+    .hero-profile-card .profile-circle {
+      width: 100% !important;
+      height: 100% !important;
+      max-width: none !important;
+      max-height: none !important;
+      aspect-ratio: 1 / 1;
+      object-fit: cover !important;
+      object-position: center top;
+      transform: none !important;
+      display: block;
+    }
 
-.hero-profile-card h2{
-  font-size:1.85rem !important;
-}
-
-.hero-profile-card .profile-role{
-  font-size:.92rem;
-  margin-bottom:14px;
-}
-
-.hero-profile-card .profile-focus{
-  margin-top:15px;
-  gap:7px;
-}
-
-.hero-profile-card .profile-focus > *{
-  padding:9px 7px;
-  font-size:.70rem;
-}
-
-.hero-profile-card .profile-tech{
-  margin-top:13px;
-  gap:6px;
-}
-
-.hero-profile-card .profile-tech > *{
-  padding:5px 8px;
-  font-size:.68rem;
-}
-
-@media(max-width:760px){
-  .hero-profile-card{
-    padding:22px !important;
-  }
-
-  .hero-profile-card .profile-circle-wrap{
-    width:104px !important;
-    height:104px !important;
-    flex-basis:104px;
-  }
-
-  .hero-profile-card h2{
-    font-size:1.65rem !important;
-  }
-}
+    @media(max-width:760px) {
+      .hero-profile-card .profile-circle-wrap {
+        width: 132px !important;
+        height: 132px !important;
+        flex-basis: 132px;
+      }
+    }
 
 
-/* Narrow profile card: reduce only its width, not the rest of the hero layout */
-.hero-profile-card{
-  width:min(100%, 390px) !important;
-  justify-self:end;
-  box-sizing:border-box;
-}
+    /* Compact the hero profile card without changing its visual treatment */
+    .hero-profile-card {
+      padding: 26px !important;
+    }
 
-@media(max-width:950px){
-  .hero-profile-card{
-    width:100% !important;
-    justify-self:stretch;
-  }
-}
+    .hero-profile-card .profile-circle-wrap {
+      width: 118px !important;
+      height: 118px !important;
+      flex-basis: 118px;
+      margin-bottom: 18px;
+    }
 
-</style>
+    .hero-profile-card h2 {
+      font-size: 1.85rem !important;
+    }
+
+    .hero-profile-card .profile-role {
+      font-size: .92rem;
+      margin-bottom: 14px;
+    }
+
+    .hero-profile-card .profile-focus {
+      margin-top: 15px;
+      gap: 7px;
+    }
+
+    .hero-profile-card .profile-focus>* {
+      padding: 9px 7px;
+      font-size: .70rem;
+    }
+
+    .hero-profile-card .profile-tech {
+      margin-top: 13px;
+      gap: 6px;
+    }
+
+    .hero-profile-card .profile-tech>* {
+      padding: 5px 8px;
+      font-size: .68rem;
+    }
+
+    @media(max-width:760px) {
+      .hero-profile-card {
+        padding: 22px !important;
+      }
+
+      .hero-profile-card .profile-circle-wrap {
+        width: 104px !important;
+        height: 104px !important;
+        flex-basis: 104px;
+      }
+
+      .hero-profile-card h2 {
+        font-size: 1.65rem !important;
+      }
+    }
+
+
+    /* Narrow profile card: reduce only its width, not the rest of the hero layout */
+    .hero-profile-card {
+      width: min(100%, 390px) !important;
+      justify-self: end;
+      box-sizing: border-box;
+    }
+
+    @media(max-width:950px) {
+      .hero-profile-card {
+        width: 100% !important;
+        justify-self: stretch;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -1548,35 +1571,33 @@
       </div>
 
       <div class="profile-card hero-profile-card">
-        <img
-          class="profile-circle"
-          src="./profile.jpg"
-          alt="Fahad — Software Engineer"
-          loading="eager"
+        <img class="profile-circle" src="./profile.jpg" alt="Fahad — Software Engineer" loading="eager"
           referrerpolicy="no-referrer"
-          onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';"
-        />
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';" />
         <div class="profile-circle profile-circle-fallback" style="display:none;">AF</div>
 
-        <h2>Fahad</h2>
+        <h2>Fahad.</h2>
         <div class="role">Software Engineer</div>
 
         <div class="profile-info">
           <div class="info">
             <span>Experience</span>
-            <strong>4+ Years</strong>
+            <strong>4.8 Years</strong>
           </div>
+
           <div class="info">
             <span>Primary Stack</span>
-            <strong>Node.js</strong>
+            <strong>Node.js Environment</strong>
           </div>
+
           <div class="info">
-            <span>Cloud</span>
-            <strong>AWS</strong>
+            <span>Cloud & Infra</span>
+            <strong>AWS & CloudFlare</strong>
           </div>
+
           <div class="info">
-            <span>Automation</span>
-            <strong>AI + DevOps</strong>
+            <span>Focus</span>
+            <strong>AI Agents, System Design & DevOps</strong>
           </div>
         </div>
       </div>
@@ -1584,10 +1605,11 @@
 
     <!-- ================= STATS ================= -->
 
-    <p class="impact-caption">Selected engineering outcomes from systems I have built, optimized, and operated in production.</p>
+    <p class="impact-caption">Selected engineering outcomes from systems I have built, optimized, and operated in
+      production.</p>
     <div class="stats">
       <div class="stat">
-        <div class="number">4+</div>
+        <div class="number">4.8</div>
         <div class="label">Years Building Production Systems</div>
       </div>
       <div class="stat">
@@ -1648,7 +1670,9 @@
         <div class="about-card">
           <div class="icon-box">
             <svg class="icon" viewBox="0 0 24 24">
-              <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path>
+              <path
+                d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83">
+              </path>
               <circle cx="12" cy="12" r="3"></circle>
             </svg>
           </div>
@@ -1691,7 +1715,8 @@
         <div class="impact-mini">
           <span class="impact-number">Redis</span>
           <strong>Reduced database load</strong>
-          <span>Added caching and asynchronous processing for frequently accessed and higher-throughput workloads.</span>
+          <span>Added caching and asynchronous processing for frequently accessed and higher-throughput
+            workloads.</span>
         </div>
 
         <div class="impact-mini">
@@ -1920,17 +1945,23 @@
 
           <ul>
             <li>Engineered backend and full-stack services for mForm, mGrant and shared platform services.</li>
-            <li>Developed Payflow features using Next.js, React, TypeScript, Node.js and MongoDB, covering payment workflows, approvals, transaction processing and RBAC.</li>
-            <li>Architected Node.js microservices and REST APIs supporting applications handling 50K+ daily API requests.</li>
+            <li>Developed Payflow features using Next.js, React, TypeScript, Node.js and MongoDB, covering payment
+              workflows, approvals, transaction processing and RBAC.</li>
+            <li>Architected Node.js microservices and REST APIs supporting applications handling 50K+ daily API
+              requests.</li>
             <li>Led backend development of mGrant modules, reusable workflow engines, service components and APIs.</li>
-            <li>Optimized MongoDB indexes and aggregation pipelines, reducing API response time from 850ms to 300ms — a 65% improvement.</li>
+            <li>Optimized MongoDB indexes and aggregation pipelines, reducing API response time from 850ms to 300ms — a
+              65% improvement.</li>
             <li>Implemented Redis caching and asynchronous processing for higher-throughput workloads.</li>
             <li>Designed JWT authentication, authorization, validation and business-rule services.</li>
-            <li>Integrated ABDM Gateway APIs for ABHA creation, consent management and health-record linking for healthcare workflows used by 10K+ mobile users.</li>
+            <li>Integrated ABDM Gateway APIs for ABHA creation, consent management and health-record linking for
+              healthcare workflows used by 10K+ mobile users.</li>
             <li>Automated CI/CD and application deployment workflows for mGrant and mForm product pipelines.</li>
             <li>Worked on Docker-based application delivery and AWS infrastructure workflows.</li>
-            <li>Supported production deployments by analyzing logs, deployment failures, environment configuration and pipeline issues.</li>
-            <li>Explored AI-assisted and agentic DevOps workflows for pipeline analysis, failure investigation, deployment checks and operational recommendations.</li>
+            <li>Supported production deployments by analyzing logs, deployment failures, environment configuration and
+              pipeline issues.</li>
+            <li>Explored AI-assisted and agentic DevOps workflows for pipeline analysis, failure investigation,
+              deployment checks and operational recommendations.</li>
           </ul>
         </div>
 
@@ -2103,7 +2134,9 @@
             <div class="project-icon">
               <svg class="icon" viewBox="0 0 24 24">
                 <circle cx="12" cy="12" r="3"></circle>
-                <path d="M12 2v4M12 18v4M2 12h4M18 12h4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M19.1 4.9l-2.8 2.8M7.7 16.3l-2.8 2.8"></path>
+                <path
+                  d="M12 2v4M12 18v4M2 12h4M18 12h4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M19.1 4.9l-2.8 2.8M7.7 16.3l-2.8 2.8">
+                </path>
               </svg>
             </div>
           </div>
@@ -2390,4 +2423,5 @@
   </script>
 
 </body>
+
 </html>
